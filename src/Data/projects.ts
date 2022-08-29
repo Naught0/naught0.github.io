@@ -70,7 +70,7 @@ export const projects: Project[] = [
   },
   {
     title: "this site :)",
-    url: "https://naught0.github.io",
+    url: "https://github.com/naught0/naught0.github.io",
     description: "My personal website displaying some of my projects & skills",
     imageUrl: personalSite,
     tags: [
