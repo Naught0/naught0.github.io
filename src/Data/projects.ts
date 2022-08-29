@@ -3,6 +3,7 @@ import qtbot from "../Images/qtbot.png";
 import asyncurban from "../Images/asyncurban.png";
 import personalSite from "../Images/personalSite.png";
 import rechargeMigr8 from "../Images/rechargeMigr8.png";
+import avalanche from "../Images/avalanche.state.co.us.png";
 
 export interface Project {
   title: string;
@@ -24,25 +25,62 @@ export const projects: Project[] = [
       "pandas",
       "typescript",
       "react",
-      "webhosting",
+      "web hosting",
       "google cloud run",
       "docker",
     ],
   },
   {
     title: "migr8",
-    url: "",
     description:
       "An internal web app that acts as an ETL from competitor APIs to our platform. Solo designed and developed from the ground up in 3 months",
     imageUrl: rechargeMigr8,
-    tags: ["python", "asyncio", "flask", "SQL", "typescript", "react", "redis", "hosting", "GCP", "VPS", "system design", "parallelization"],
+    tags: [
+      "python",
+      "asyncio",
+      "flask",
+      "SQL",
+      "typescript",
+      "react",
+      "redis",
+      "hosting",
+      "GCP",
+      "VPS",
+      "system design",
+      "parallelization",
+      "user roles",
+      "security",
+    ],
   },
   {
-    title: "qtbot",
-    url: "https://github.com/naught0/qtbot",
-    description: "My personal, multifarious bot for Discord",
-    imageUrl: qtbot,
-    tags: ["python", "requests", "NLTK", "web-scraping", "VPS"],
+    title: "Colorado Avalanche Information Center (CAIC)",
+    description:
+      "Interactive Map, tables, & misc. other components for the CAIC website to forecast, warn, & catalog avalanches in Colorado. Live Q4 2022",
+    imageUrl: avalanche,
+    url: "https://avalanche.state.co.us",
+    tags: [
+      "react.js",
+      "google maps",
+      "google places",
+      "caching",
+      "CI/CD",
+      "agile",
+      "design implementation",
+    ],
+  },
+  {
+    title: "this site :)",
+    url: "https://naught0.github.io",
+    description: "My personal website displaying some of my projects & skills",
+    imageUrl: personalSite,
+    tags: [
+      "typescript",
+      "react",
+      "tailwind.css",
+      "deployment",
+      "web hosting",
+      "github pages",
+    ],
   },
   {
     title: "asyncurban",
@@ -60,6 +98,13 @@ export const projects: Project[] = [
     ],
   },
   {
+    title: "qtbot",
+    url: "https://github.com/naught0/qtbot",
+    description: "My personal, multifarious bot for Discord",
+    imageUrl: qtbot,
+    tags: ["python", "requests", "NLTK", "web-scraping", "APIs", "SQL", "redis", "caching", "VPS"],
+  },
+  {
     title: "LogMeIn Log Analyzer",
     url: "https://github.com/Naught0/LogMeIn-Log-Analyzer",
     description:
@@ -74,12 +119,5 @@ export const projects: Project[] = [
       "text parsing",
       "version control",
     ],
-  },
-  {
-    title: "This site :)",
-    url: "https://naught0.github.io",
-    description: "My personal website displaying some of my projects & skills",
-    imageUrl: personalSite,
-    tags: ["typescript", "react", "tailwind.css"],
   },
 ];
