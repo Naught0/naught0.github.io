@@ -45,7 +45,9 @@ export const App = () => {
         <p className="text-7xl dark:text-white">Projects</p>
         <div className="flex space-around sm:justify-center lg:justify-around min-h-screen h-full flex-wrap mt-12 gap-6">
           {projects.map((project, idx) => {
-            return <ProjectCard {...project} />;
+            return (
+              <ProjectCard key={`${project.title}-card-${idx}`} {...project} />
+            );
           })}
         </div>
       </Hero>
