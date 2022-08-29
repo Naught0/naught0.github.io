@@ -4,7 +4,15 @@ module.exports = {
   darkMode: "class",
   theme: {
     fontFamily: {
-      sans: ["-apple-system", "BlinkMacSystemFont", "Helvetica"],
+      sans: [
+        "-apple-system",
+        "BlinkMacSystemFont",
+        "Nunito Sans",
+        "Helvetica",
+        "Segoe UI",
+        "Arial",
+        "sans-serif",
+      ],
     },
     extend: {},
   },
