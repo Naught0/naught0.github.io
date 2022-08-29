@@ -59,7 +59,7 @@ export const projects: Project[] = [
     imageUrl: avalanche,
     url: "https://avalanche.state.co.us",
     tags: [
-      "react.js",
+      "react",
       "google maps",
       "google places",
       "caching",
