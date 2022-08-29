@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Blurb } from "./Components/Blurb";
 import { ThemeButton } from "./Components/ThemeButton";
-import "animate.css";
 import { Hero } from "./Components/Layout";
 import { projects } from "./Data/projects";
 import { ProjectCard } from "./Components/ProjectCard";
@@ -12,24 +11,27 @@ export enum Theme {
 }
 
 export const App = () => {
-  const [theme, setTheme] = useState<Theme>(Theme.dark);
+  const [theme, setTheme] = useState<Theme>();
   useEffect(() => {
     const theme = localStorage.theme;
-    if (
-      theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
+    if (theme === "dark") {
       setTheme(Theme.dark);
     } else {
       setTheme(Theme.light);
     }
+    console.log(localStorage);
   }, []);
 
   useEffect(() => {
-    if (theme === Theme.dark)
-      return document.documentElement.classList.add("dark");
-    document.documentElement.classList.remove("dark");
+    if (!theme) return;
+    
+    if (theme === "dark") {
+      localStorage.setItem("theme", "dark");
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
   }, [theme]);
 
   return (
