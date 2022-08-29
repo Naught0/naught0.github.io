@@ -77,8 +77,7 @@ export const Blurb = () => {
               window.scroll({ top: window.innerHeight, behavior: "smooth" })
             }
           >
-            <div className="flex flex-col">
-              <p className="dark:text-white text-xl">Projects</p>
+            <div className="flex flex-col animate-bounce">
               <FontAwesomeIcon className="text-4xl" icon={faChevronDown} />
             </div>
           </button>
