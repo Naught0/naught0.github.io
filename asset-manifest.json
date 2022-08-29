@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/react-gh-pages/static/css/main.a59e62d0.css",
+    "main.js": "/react-gh-pages/static/js/main.60fb8c62.js",
+    "static/js/787.cda612ba.chunk.js": "/react-gh-pages/static/js/787.cda612ba.chunk.js",
+    "static/media/personalSite.png": "/react-gh-pages/static/media/personalSite.285f6249a788c4ae1851.png",
+    "static/media/mtgCombinator.png": "/react-gh-pages/static/media/mtgCombinator.2736a9b3d070f7af761c.png",
+    "static/media/qtbot.png": "/react-gh-pages/static/media/qtbot.80644ea3b6c35baaed7f.png",
+    "static/media/asyncurban.png": "/react-gh-pages/static/media/asyncurban.c53931ed2f22556d848c.png",
+    "static/media/rechargeMigr8.png": "/react-gh-pages/static/media/rechargeMigr8.a3e1511d0f07deb4241e.png",
+    "index.html": "/react-gh-pages/index.html",
+    "main.a59e62d0.css.map": "/react-gh-pages/static/css/main.a59e62d0.css.map",
+    "main.60fb8c62.js.map": "/react-gh-pages/static/js/main.60fb8c62.js.map",
+    "787.cda612ba.chunk.js.map": "/react-gh-pages/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a59e62d0.css",
+    "static/js/main.60fb8c62.js"
+  ]
+}
