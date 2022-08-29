@@ -15,7 +15,7 @@ import { IconText } from "./Components";
 export const Blurb = () => {
   return (
     <>
-      <section className="p-5 h-screen bg-gradient-to-br from-white to-zinc-300 dark:from-black dark:to-slate-900">
+      <section className="p-5 h-screen bg-gradient-to-br from-white to-slate-300 dark:from-slate-900 dark:to-black">
         <div className="h-full flex items-center">
           <div className="flex flex-col md:flex-row justify-center w-full gap-8">
             <div className="flex flex-col">
@@ -72,13 +72,13 @@ export const Blurb = () => {
 
         <div className="w-full flex justify-center">
           <button
-            className="absolute bottom-5 dark:text-white"
+            className="absolute bottom-5 drop-shadow shadow-black dark:text-white"
             onClick={() =>
               window.scroll({ top: window.innerHeight, behavior: "smooth" })
             }
           >
             <div className="flex flex-col animate-bounce">
-              <FontAwesomeIcon className="text-4xl" icon={faChevronDown} />
+              <FontAwesomeIcon className="text-5xl" icon={faChevronDown} />
             </div>
           </button>
         </div>
