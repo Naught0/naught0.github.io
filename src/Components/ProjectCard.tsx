@@ -23,10 +23,10 @@ export const ProjectCard: FC<Project> = ({
           <p className="dark:text-gray-400 bg-slate-50 text-sm dark:bg-slate-900 p-5 border border-slate-200 dark:border-slate-800 rounded">
             {description}
           </p>
-          <div className="flex flex-row flex-nowrap items-center justify-start">
+          <div className="flex flex-row flex-nowrap items-center justify-center">
             {url && (
               <Link
-                className="text-blue-500 flex flex-row flex-nowrap items-center gap-3 text-sm md:text-base"
+                className="text-blue-500 flex flex-row flex-nowrap items-center gap-3 text-lg"
                 href={url}
               >
                 <IconText
