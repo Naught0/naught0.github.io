@@ -43,9 +43,9 @@ export const App = () => {
         theme={theme}
       />
       <Blurb />
-      <Hero className="bg-gradient-to-tr from-white to-zinc-300 dark:from-black dark:to-slate-900 h-full min-h-fit p-5 lg:p-16 transition-colors">
+      <Hero className="bg-gradient-to-tr from-white to-slate-300 dark:from-slate-900 dark:to-black h-full min-h-fit p-5 lg:p-16f">
         <p className="text-7xl dark:text-white">Projects</p>
-        <div className="flex space-around sm:justify-center lg:justify-around min-h-screen h-full flex-wrap mt-12 gap-6">
+        <div className="flex items-baseline justify-around min-h-screen h-full flex-wrap mt-12 gap-6">
           {projects.map((project, idx) => {
             return (
               <ProjectCard key={`${project.title}-card-${idx}`} {...project} />
