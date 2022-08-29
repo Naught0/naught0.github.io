@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.a59e62d0.css",
-    "main.js": "/static/js/main.b376b204.js",
+    "main.css": "/static/css/main.b4fe78f3.css",
+    "main.js": "/static/js/main.77ee919d.js",
     "static/js/787.3ba5e41c.chunk.js": "/static/js/787.3ba5e41c.chunk.js",
+    "static/media/avalanche.state.co.us.png": "/static/media/avalanche.state.co.us.7f4da00f333b2f48b89c.png",
     "static/media/personalSite.png": "/static/media/personalSite.285f6249a788c4ae1851.png",
     "static/media/mtgCombinator.png": "/static/media/mtgCombinator.2736a9b3d070f7af761c.png",
     "static/media/qtbot.png": "/static/media/qtbot.80644ea3b6c35baaed7f.png",
     "static/media/asyncurban.png": "/static/media/asyncurban.c53931ed2f22556d848c.png",
     "static/media/rechargeMigr8.png": "/static/media/rechargeMigr8.a3e1511d0f07deb4241e.png",
     "index.html": "/index.html",
-    "main.a59e62d0.css.map": "/static/css/main.a59e62d0.css.map",
-    "main.b376b204.js.map": "/static/js/main.b376b204.js.map",
+    "main.b4fe78f3.css.map": "/static/css/main.b4fe78f3.css.map",
+    "main.77ee919d.js.map": "/static/js/main.77ee919d.js.map",
     "787.3ba5e41c.chunk.js.map": "/static/js/787.3ba5e41c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a59e62d0.css",
-    "static/js/main.b376b204.js"
+    "static/css/main.b4fe78f3.css",
+    "static/js/main.77ee919d.js"
   ]
 }
