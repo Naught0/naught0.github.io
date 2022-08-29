@@ -13,7 +13,7 @@ export const ProjectCard: FC<Project> = ({
 }) => {
   return (
     <div
-      className={`max-w-sm flex-grow-0 flex-shrink h-fit p-6 bg-white dark:bg-black shadow-md rounded-lg dark:shadow-black dark:border dark:border-slate-800`}
+      className={`max-w-sm flex-shrink-0 flex-grow-0 h-fit p-6 bg-white dark:bg-black shadow rounded-lg dark:shadow-black dark:border dark:border-slate-800`}
     >
       <div className="flex flex-col lg:flex-row-reverse justify-center items-center gap-3">
         <div className="flex flex-col justify-start gap-3 w-full">

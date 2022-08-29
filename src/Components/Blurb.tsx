@@ -5,12 +5,9 @@ import {
   faPython,
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
-import {
-  faChevronDown,
-  faGem,
-} from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faGem } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconText } from "./Components";
+import { IconText, Link } from "./Components";
 
 export const Blurb = () => {
   return (
@@ -31,18 +28,18 @@ export const Blurb = () => {
                 <p className="text-sm text-gray-600 dark:text-slate-300">
                   Charlotte, NC
                 </p>
-                <a
-                  className="underline dark:text-white"
+                <Link
+                  className="dark:text-white underline"
                   href="https://github.com/Naught0"
                 >
                   <IconText icon={faGithubSquare}>naught0</IconText>
-                </a>
-                <a
+                </Link>
+                <Link
                   className="underline dark:text-white"
-                  href="https://linkedin.com/jameseuteneuer"
+                  href="https://linkedin.com/in/jameseuteneuer"
                 >
                   <IconText icon={faLinkedin}>jameseuteneuer</IconText>
-                </a>
+                </Link>
               </nav>
             </div>
             <div className="flex items-end">
