@@ -17,7 +17,7 @@ export const ThemeButton: FC<ThemeButtonProps> = ({
 }) => {
   return (
     <Button
-      className="fixed top-5 right-5 z-10 opacity-70 hover:opacity-100 transition-opacity bg-indigo-900 dark:bg-yellow-100 text-yellow-100 dark:text-indigo-900"
+      className="fixed top-5 right-5 z-10 opacity-70 hover:opacity-100 transition-opacity bg-indigo-700 dark:bg-orange-400 dark:text-white"
       onClick={() => setTheme(theme)}
       square
     >
