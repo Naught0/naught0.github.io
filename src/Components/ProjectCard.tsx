@@ -123,21 +123,30 @@ export const ProjectCard: FC<ProjectCardProps> = ({
               </div>
             </div>
             <div>
-              <button
-                className={`${
-                  !canGrow
-                    ? "dark:text-white text-slate-400"
-                    : "dark:text-red-400 text-slate-600"
-                } hover:scale-110 transition-transform hidden lg:block`}
-                onClick={() => {
-                  expand();
-                }}
-              >
-                <FontAwesomeIcon
-                  icon={canGrow ? faXmarkCircle : faExpand}
-                  className="text-2xl"
-                />
-              </button>
+              {/* 
+              Expand button `hidden md:block
+              close btn visible if canGrow
+               */}
+              {canGrow && (
+                <button
+                  className="dark:text-red-400 text-red-400 hover:scale-110 transition-transform"
+                  onClick={() => {
+                    expand();
+                  }}
+                >
+                  <FontAwesomeIcon icon={faXmarkCircle} className="text-2xl" />
+                </button>
+              )}
+              {!canGrow && (
+                <button
+                  className="dark:text-white text-slate-600 hover:scale-110 transition-transform"
+                  onClick={() => {
+                    expand();
+                  }}
+                >
+                  <FontAwesomeIcon icon={faExpand} className="text-2xl" />
+                </button>
+              )}
             </div>
           </div>
           <blockquote className="border-l-4 rounded-r dark:border-blue-500 dark:bg-slate-900 bg-slate-200 border-blue-500 p-3 dark:text-slate-300 text-sm">
@@ -165,6 +174,9 @@ export const ProjectCard: FC<ProjectCardProps> = ({
               )}
             </div>
           )}
+          <div className="block md:hidden">
+            <Tags tags={tags} />
+          </div>
           {canGrow && (
             <div className="flex flex-grow flex-col">
               <Tags tags={tags} />
