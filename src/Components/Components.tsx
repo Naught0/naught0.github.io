@@ -56,14 +56,12 @@ const IconText: FC<IconTextProps> = ({
 }) => {
   return (
     <div
-      className={`${
-        className || ""
-      } flex items-center gap-1 flex-row flex-nowrap whitespace-nowrap`}
+      className={className || ""}
     >
-      {!iconRight && <FontAwesomeIcon icon={icon} className="p-1" />}
-      {text && <div>{text}</div>}
+      {!iconRight && <FontAwesomeIcon icon={icon} className="mr-2" />}
+      {text && <span>{text}{" "}</span>}
       {children && children}
-      {iconRight && <FontAwesomeIcon icon={icon} />}
+      {iconRight && <FontAwesomeIcon icon={icon} className="ml-2" />}
     </div>
   );
 };

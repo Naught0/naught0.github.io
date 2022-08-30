@@ -1,7 +1,42 @@
 @tailwind base
 @tailwind components
 @tailwind utilities
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap')
 
-*
+div,
+p,
+button,
+a,
+section
   outline: none
+  transition: background-color 0.1s ease, border-color 0.1s ease
+
+@keyframes gradient
+  0%
+    background-position: 0% 50%
+
+  50%
+    background-position: 100% 50%
+
+  100%
+    background-position: 0% 50%
+
+.dark .animate-bg
+  background: linear-gradient(-45deg, #1e293b, black, #44403c)
+  background-size: 400% 400%
+  animation: gradient 15s ease infinite
+
+.animate-bg
+  background: linear-gradient(-45deg, #fda4af, white, #93c5fd)
+  background-size: 400% 400%
+  animation: gradient 15s ease infinite
+
+.bg-pipes
+  background: linear-gradient(rgb(255 255 255 / 0.8), rgb(255 255 255 / 0.8)), url("./Images/bg-pipes.webp") repeat
+  background-attachment: fixed
+  backdrop-filter: opacity(0.9)
+
+.dark .bg-pipes
+  background: linear-gradient(rgb(0 8 27 / 0.92), rgb(0 8 27 / 0.92)), url("./Images/bg-pipes.webp") repeat
+  background-attachment: fixed
+  backdrop-filter: opacity(0.9)

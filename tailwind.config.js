@@ -5,9 +5,9 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: [
+        "IBM Plex Sans",
         "-apple-system",
         "BlinkMacSystemFont",
-        "Nunito Sans",
         "Helvetica",
         "Segoe UI",
         "Arial",

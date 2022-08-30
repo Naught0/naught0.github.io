@@ -12,20 +12,20 @@ import { IconText, Link } from "./Components";
 export const Blurb = () => {
   return (
     <>
-      <section className="p-5 h-screen bg-gradient-to-br from-white to-slate-300 dark:from-slate-900 dark:to-black">
+      <section className="p-5 h-screen animate-bg">
         <div className="h-full flex items-center">
           <div className="flex flex-col md:flex-row justify-center w-full gap-8">
             <div className="flex flex-col">
-              <p className="text-7xl md:text-9xl dark:text-white text-right">
+              <p className="text-7xl md:text-9xl dark:text-white text-right font-bold">
                 James E.
               </p>
               <nav className="flex flex-col items-end text-xl gap-2">
                 <p>
-                  <span className="text-blue-500 dark:text-orange-400">
+                  <span className="text-blue-500 dark:text-orange-400 font-bold">
                     Full Stack Developer
                   </span>
                 </p>
-                <p className="text-sm text-gray-600 dark:text-slate-300">
+                <p className="text-base text-gray-600 dark:text-slate-300">
                   Charlotte, NC
                 </p>
                 <Link
