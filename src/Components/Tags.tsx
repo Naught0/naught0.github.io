@@ -6,7 +6,7 @@ interface TagsProps {
 }
 export const Tags: FC<TagsProps> = ({ tags, color }) => {
   return (
-    <div className="flex justify-start flex-wrap gap-2 h-fit max-w-full">
+    <div className="flex justify-start flex-wrap gap-2 h-fit max-w-full m-1">
       {tags.map((tag, idx) => (
         <div
           key={`tag-${tag}-${idx}`}

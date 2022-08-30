@@ -1,8 +1,11 @@
 import mtgCombinator from "../Images/mtgCombinator.png";
+import combinatorVideo from "../Images/combinator.mp4";
 import qtbot from "../Images/qtbot.png";
+import qtVideo from "../Images/qtbot.mp4";
 import asyncurban from "../Images/asyncurban.png";
 import personalSite from "../Images/personalSite.png";
 import rechargeMigr8 from "../Images/rechargeMigr8.png";
+import migr8Video from "../Images/migr8.mp4";
 import avalanche from "../Images/avalanche.state.co.us.png";
 
 export interface Project {
@@ -10,15 +13,17 @@ export interface Project {
   url?: string;
   description: string;
   imageUrl: string;
+  videoUrl?: string;
   tags: string[];
 }
 export const projects: Project[] = [
   {
     title: "combinator",
-    url: "https://mtbcombinator.com",
+    url: "https://mtgcombinator.com",
     description:
       "Paste in your Magic: The Gathering deck & immediately get an overview of what combos, loops, and shenanigans are inside",
     imageUrl: mtgCombinator,
+    videoUrl: combinatorVideo,
     tags: [
       "python",
       "flask",
@@ -35,6 +40,7 @@ export const projects: Project[] = [
     description:
       "An internal web app that acts as an ETL from competitor APIs to our platform. Solo designed and developed from the ground up in 3 months",
     imageUrl: rechargeMigr8,
+    videoUrl: migr8Video,
     tags: [
       "python",
       "asyncio",
@@ -102,7 +108,18 @@ export const projects: Project[] = [
     url: "https://github.com/naught0/qtbot",
     description: "My personal, multifarious bot for Discord",
     imageUrl: qtbot,
-    tags: ["python", "requests", "NLTK", "web-scraping", "APIs", "SQL", "redis", "caching", "VPS"],
+    videoUrl: qtVideo,
+    tags: [
+      "python",
+      "requests",
+      "NLTK",
+      "web-scraping",
+      "APIs",
+      "SQL",
+      "redis",
+      "caching",
+      "VPS",
+    ],
   },
   {
     title: "LogMeIn Log Analyzer",

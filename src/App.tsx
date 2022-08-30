@@ -4,7 +4,6 @@ import { ThemeButton } from "./Components/ThemeButton";
 import { Hero } from "./Components/Layout";
 import { projects } from "./Data/projects";
 import { ProjectCard, ProjectCardProps } from "./Components/ProjectCard";
-import "animate.css";
 
 export enum Theme {
   dark = "dark",
