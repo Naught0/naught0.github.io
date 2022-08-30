@@ -53,13 +53,13 @@ export const App = () => {
         {!!selectedProjectCard ? (
           <div className="my-10">
             <ProjectCard
-              canGrow={true}
+              canExpand={true}
               {...selectedProjectCard}
               expand={() => setSelectedProjectCard(undefined)}
             />
           </div>
         ) : (
-          <div className="flex items-start justify-evenly min-h-screen h-full flex-wrap mt-12 gap-6">
+          <div className="flex flex-row min-h-screen h-full flex-wrap gap-5 mt-12">
             {projects.map((project, idx) => {
               return (
                 <ProjectCard

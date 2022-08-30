@@ -1,3 +1,1 @@
-import { Hero } from "./Hero";
-
-export { Hero };
+export * from "./Hero";

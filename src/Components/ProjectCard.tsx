@@ -1,33 +1,50 @@
 import {
   faArrowUpRightFromSquare,
   faExpand,
-  faXmark,
+  faXmarkCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import { FC, useState } from "react";
+import {
+  FC,
+  ForwardedRef,
+  forwardRef,
+  useEffect,
+  createRef,
+  useState,
+} from "react";
 import { IconText, Link } from "./Components";
 import { Project } from "../Data/projects";
 import { Tags } from "./Tags";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDebounce } from "use-debounce";
+import { useKeyPressed } from "../Hooks";
 
 export interface ProjectCardProps extends Project {
-  canGrow?: boolean;
+  canExpand?: boolean;
   expand: () => void;
 }
 
-const Video = ({ videoUrl }: { videoUrl?: string }) => {
-  return (
-    <video
-      className="max-w-3xl max-h-full w-full"
-      src={videoUrl}
-      loop
-      muted
-      autoPlay
-    >
-      <source src={videoUrl} type="video/mp4" />
-    </video>
-  );
-};
+interface VideoProps {
+  videoUrl: string;
+  playing?: boolean;
+}
+const Video = forwardRef(
+  (props: VideoProps, ref: ForwardedRef<HTMLVideoElement>) => {
+    return (
+      <div className="overflow-hidden rounded-md">
+        <video
+          className="max-w-3xl max-h-full w-full"
+          src={props.videoUrl}
+          autoPlay={props.playing}
+          ref={ref}
+          loop
+          muted
+        >
+          <source src={props.videoUrl} type="video/mp4" />
+        </video>
+      </div>
+    );
+  }
+);
 
 export const ProjectCard: FC<ProjectCardProps> = ({
   description,
@@ -37,20 +54,42 @@ export const ProjectCard: FC<ProjectCardProps> = ({
   title,
   url,
   expand,
-  canGrow,
+  canExpand: canGrow,
 }) => {
   const [hovering, setHovering] = useState(false);
   const [isHovering] = useDebounce(hovering, 700);
+  const shouldClose = useKeyPressed((e) => e.key === "Escape");
+
+  // Close on ESC
+  useEffect(() => {
+    if (!shouldClose || !canGrow) return;
+    expand();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [shouldClose]);
+
+  // Video ref
+  const videoRef = createRef<HTMLVideoElement>();
+  useEffect(() => {
+    if (!videoRef.current) return;
+    if (!isHovering) {
+      videoRef.current.pause();
+      return;
+    }
+
+    videoRef.current.play();
+  }, [isHovering, videoRef]);
 
   return (
     <div
-      className={`${!canGrow && "md:hover:scale-105 md:cursor-pointer"}
+      className={`${!canGrow ? "md:hover:scale-105 md:cursor-pointer" : ""}
         ${
           canGrow
-            ? "w-full"
-            : "flex-shrink-0 flex-grow-0 max-w-full md:max-w-sm"
+            ? "max-w-full lg:w-2/3"
+            : "flex-shrink-0 flex-grow-0 w-fit max-w-full md:max-w-sm xl:max-w-xl"
         }
-      !transition-transform hover:basis-1/ hover:z-50 p-6 bg-stone-50 dark:bg-black rounded drop-shadow-md dark:shadow-black dark:border dark:border-slate-800 animate-fadeIn hover:max-h-max max-h-min 
+      m-auto !transition-transform hover:z-50 p-10 bg-stone-50 dark:bg-black 
+      rounded drop-shadow-md dark:shadow-black dark:border 
+    dark:border-slate-800 animate-fadeIn hover:max-h-max max-h-min
       }`}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
@@ -87,7 +126,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
               <button
                 className={`${
                   !canGrow
-                    ? "dark:text-white"
+                    ? "dark:text-white text-slate-400"
                     : "dark:text-red-400 text-slate-600"
                 } hover:scale-110 transition-transform hidden lg:block`}
                 onClick={() => {
@@ -95,7 +134,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
                 }}
               >
                 <FontAwesomeIcon
-                  icon={canGrow ? faXmark : faExpand}
+                  icon={canGrow ? faXmarkCircle : faExpand}
                   className="text-2xl"
                 />
               </button>
@@ -104,39 +143,44 @@ export const ProjectCard: FC<ProjectCardProps> = ({
           <blockquote className="border-l-4 rounded-r dark:border-blue-500 dark:bg-slate-900 bg-slate-200 border-blue-500 p-3 dark:text-slate-300 text-sm">
             {description}
           </blockquote>
-          <div className="flex flex-1 justify-start rounded">
-            {!canGrow && (
-              <>
-                {(!isHovering || !videoUrl) && (
-                  <img
-                    src={imageUrl}
-                    alt={title}
-                    className="rounded pointer-events-none"
-                    width={512}
-                  />
-                )}
-                {isHovering && <Video videoUrl={videoUrl} />}
-              </>
-            )}
-            <div className="m-auto drop-shadow overflow-hidden rounded-md">
-              {canGrow && videoUrl ? (
-                <Video videoUrl={videoUrl} />
+          {!canGrow && (
+            <div className="flex flex-col rounded w-full">
+              {videoUrl ? (
+                <Video
+                  videoUrl={videoUrl}
+                  playing={isHovering}
+                  ref={videoRef}
+                />
               ) : (
                 <img
                   src={imageUrl}
                   alt={title}
-                  className="rounded pointer-events-none"
-                  width={512}
+                  className="rounded-md max-w-full"
                 />
               )}
+              {isHovering && (
+                <div className="animate-fadeIn hidden md:block">
+                  <Tags tags={tags} />
+                </div>
+              )}
             </div>
-          </div>
-          <div className={`${canGrow ? "" : "md:hidden"}`}>
-            <Tags tags={tags} />
-          </div>
-          {!canGrow && isHovering && hovering && (
-            <div className={`${!canGrow && "animate-fadeIn"} hidden md:block`}>
+          )}
+          {canGrow && (
+            <div className="flex flex-grow flex-col">
               <Tags tags={tags} />
+              <div className="m-auto mt-2">
+                {videoUrl ? (
+                  <Video videoUrl={videoUrl} playing={true} ref={videoRef} />
+                ) : (
+                  <div className="max-w-screen-lg">
+                    <img
+                      src={imageUrl}
+                      alt={title}
+                      className="rounded pointer-events-none max-w-full"
+                    />
+                  </div>
+                )}
+              </div>
             </div>
           )}
         </div>
