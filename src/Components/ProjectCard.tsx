@@ -26,7 +26,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
   return (
     <div
       className={`animate__animated animate__faster animate__zoomIn p-6 bg-stone-50 dark:bg-black rounded drop-shadow-md dark:shadow-black dark:border dark:border-slate-800  ${
-        canGrow ? "w-full h-fit" : "flex-shrink-0 flex-grow-0 max-w-sm h-fit"
+        canGrow ? "w-full h-fit" : "flex-shrink-0 flex-grow-0 max-w-full md:max-w-sm h-fit"
       }
       }`}
     >
@@ -41,7 +41,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
         <div className={`flex flex-col justify-start gap-3 w-full`}>
           <div className="flex flex-row flex-nowrap justify-between">
             <div>
-              <p
+              <div
                 className={`${
                   canGrow ? "text-4xl" : "text-xl"
                 } my-1 dark:text-white`}
@@ -60,7 +60,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
                     />
                   </Link>
                 )}
-              </p>
+              </div>
             </div>
             <div>
               <button
@@ -68,7 +68,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
                   !canGrow
                     ? "dark:text-white"
                     : "dark:text-red-400 text-slate-600"
-                } hover:scale-110 transition-transform`}
+                } hover:scale-110 transition-transform hidden lg:block`}
                 onClick={() => {
                   expand();
                 }}
