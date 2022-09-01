@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Blurb } from "./Components/Blurb";
 import { ThemeButton } from "./Components/ThemeButton";
 import { Hero } from "./Components/Layout";
 import { projects } from "./Data/projects";
-import { ProjectCard, ProjectCardProps } from "./Components/ProjectCard";
+import { ProjectCard } from "./Components/ProjectCard";
 
 export enum Theme {
   dark = "dark",
@@ -12,8 +12,9 @@ export enum Theme {
 
 export const App = () => {
   const [theme, setTheme] = useState<Theme>();
-  const [selectedProjectCard, setSelectedProjectCard] =
-    useState<ProjectCardProps>();
+  const [selectedIndex, setSelectedIndex] = useState<number>();
+  const selectedProjectRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const theme = localStorage.theme;
     if (
@@ -39,6 +40,15 @@ export const App = () => {
     }
   }, [theme]);
 
+  useEffect(() => {
+    if (!selectedIndex) return;
+
+    selectedProjectRef.current?.scrollIntoView({
+      block: "start",
+      behavior: "smooth",
+    });
+  }, [selectedIndex]);
+
   return (
     <main className="h-full w-full">
       <ThemeButton
@@ -50,12 +60,13 @@ export const App = () => {
       <Blurb />
       <Hero className="dark:bg-black h-full min-h-fit w-full p-5 lg:p-16 bg-pipes">
         <p className="text-7xl dark:text-white">Projects</p>
-        {!!selectedProjectCard ? (
-          <div className="my-10">
+        {selectedIndex !== undefined ? (
+          <div className="my-10" ref={selectedProjectRef}>
             <ProjectCard
               canExpand={true}
-              {...selectedProjectCard}
-              expand={() => setSelectedProjectCard(undefined)}
+              toggleExpand={setSelectedIndex}
+              index={selectedIndex}
+              {...projects[selectedIndex]}
             />
           </div>
         ) : (
@@ -63,11 +74,11 @@ export const App = () => {
             {projects.map((project, idx) => {
               return (
                 <ProjectCard
+                  canExpand={false}
+                  index={idx}
                   key={`${project.title}-card-${idx}`}
                   {...project}
-                  expand={() =>
-                    setSelectedProjectCard(project as ProjectCardProps)
-                  }
+                  toggleExpand={setSelectedIndex}
                 />
               );
             })}

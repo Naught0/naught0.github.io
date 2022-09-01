@@ -17,10 +17,12 @@ import { Tags } from "./Tags";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDebounce } from "use-debounce";
 import { useKeyPressed } from "../Hooks";
+import useOnclickOutside from "react-cool-onclickoutside";
 
 export interface ProjectCardProps extends Project {
   canExpand?: boolean;
-  expand: () => void;
+  toggleExpand: (index?: number) => void;
+  index: number;
 }
 
 interface VideoProps {
@@ -53,17 +55,30 @@ export const ProjectCard: FC<ProjectCardProps> = ({
   tags,
   title,
   url,
-  expand,
-  canExpand: canGrow,
+  index,
+  toggleExpand,
+  canExpand,
 }) => {
   const [hovering, setHovering] = useState(false);
   const [isHovering] = useDebounce(hovering, 700);
-  const shouldClose = useKeyPressed((e) => e.key === "Escape");
+  const shouldClose = useKeyPressed((e) => {
+    if (e.key === "Escape") {
+      return true;
+    }
+    return false;
+  });
+  const outsideRef = useOnclickOutside(
+    () => {
+      if (!canExpand) return;
+      toggleExpand(undefined);
+    },
+    { ignoreClass: "theme-button" }
+  );
 
   // Close on ESC
   useEffect(() => {
-    if (!shouldClose || !canGrow) return;
-    expand();
+    if (!shouldClose || !canExpand) return;
+    toggleExpand(undefined);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shouldClose]);
 
@@ -81,21 +96,21 @@ export const ProjectCard: FC<ProjectCardProps> = ({
 
   return (
     <div
-      className={`${!canGrow ? "md:hover:scale-105 md:cursor-pointer" : ""}
-        ${
-          canGrow
-            ? "max-w-full lg:w-2/3"
-            : "flex-shrink-0 flex-grow-0 w-fit max-w-full md:max-w-sm xl:max-w-xl"
-        }
+      className={`${
+        canExpand
+          ? "max-w-full lg:w-2/3 drop-shadow-lg"
+          : "md:hover:scale-105 md:cursor-pointer flex-shrink-0 flex-grow-0 w-fit max-w-full md:max-w-sm xl:max-w-xl"
+      }
       m-auto !transition-transform hover:z-50 p-10 bg-stone-50 dark:bg-black 
-      rounded drop-shadow-md dark:shadow-black dark:border 
-    dark:border-slate-800 animate-fadeIn hover:max-h-max max-h-min
+      rounded shadow-black dark:border dark:border-slate-800 animate-fadeIn
+      hover:max-h-max max-h-min drop-shadow-md
       }`}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
       onClick={() => {
-        if (!canGrow && window.innerWidth >= 1024) return expand();
+        if (!canExpand && window.innerWidth >= 1024) return toggleExpand(index);
       }}
+      ref={outsideRef}
     >
       <div className={`flex md:flex-row flex-col-reverse gap-3`}>
         <div className={`flex flex-col justify-start gap-3 w-full`}>
@@ -103,7 +118,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
             <div>
               <div
                 className={`${
-                  canGrow ? "text-4xl" : "text-xl"
+                  canExpand ? "text-4xl" : "text-xl"
                 } my-1 dark:text-white`}
               >
                 {!url && title}
@@ -127,21 +142,21 @@ export const ProjectCard: FC<ProjectCardProps> = ({
               Expand button `hidden md:block
               close btn visible if canGrow
                */}
-              {canGrow && (
+              {canExpand && (
                 <button
                   className="dark:text-red-400 text-red-400 hover:scale-110 transition-transform"
                   onClick={() => {
-                    expand();
+                    toggleExpand(undefined);
                   }}
                 >
                   <FontAwesomeIcon icon={faXmarkCircle} className="text-2xl" />
                 </button>
               )}
-              {!canGrow && (
+              {!canExpand && (
                 <button
-                  className="dark:text-white text-slate-600 hover:scale-110 transition-transform"
+                  className="dark:text-white text-slate-600 hover:scale-110 transition-transform hidden md:flex"
                   onClick={() => {
-                    expand();
+                    toggleExpand(index);
                   }}
                 >
                   <FontAwesomeIcon icon={faExpand} className="text-2xl" />
@@ -152,7 +167,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
           <blockquote className="border-l-4 rounded-r dark:border-blue-500 dark:bg-slate-900 bg-slate-200 border-blue-500 p-3 dark:text-slate-300 text-sm">
             {description}
           </blockquote>
-          {!canGrow && (
+          {!canExpand && (
             <div className="flex flex-col rounded w-full">
               {videoUrl ? (
                 <Video
@@ -177,7 +192,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
           <div className="block md:hidden">
             <Tags tags={tags} />
           </div>
-          {canGrow && (
+          {canExpand && (
             <div className="flex flex-grow flex-col">
               <Tags tags={tags} />
               <div className="m-auto mt-2">
