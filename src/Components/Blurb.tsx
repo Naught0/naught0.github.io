@@ -75,7 +75,10 @@ export const Blurb = () => {
             }
           >
             <div className="flex flex-col animate-bounce">
-              <FontAwesomeIcon className="text-5xl md:text-5xl text-rose-500 opacity-30 dark:text-white dark:opacity-70" icon={faChevronDown} />
+              <FontAwesomeIcon
+                className="text-5xl md:text-5xl text-rose-500 opacity-30 dark:text-white dark:opacity-70"
+                icon={faChevronDown}
+              />
             </div>
           </button>
         </div>

@@ -55,9 +55,7 @@ const IconText: FC<IconTextProps> = ({
   children,
 }) => {
   return (
-    <div
-      className={className || ""}
-    >
+    <div className={className || ""}>
       {!iconRight && <FontAwesomeIcon icon={icon} className="mr-2" />}
       {text && <span>{text}</span>}
       {children && children}
