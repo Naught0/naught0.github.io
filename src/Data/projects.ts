@@ -7,6 +7,10 @@ import personalSite from "../Images/personalSite.png";
 import rechargeMigr8 from "../Images/rechargeMigr8.png";
 import migr8Video from "../Images/migr8.mp4";
 import avalanche from "../Images/avalanche.state.co.us.png";
+import tribalize from "../Images/tribalize.png";
+import tribalizeVideo from "../Images/tribalize.mp4";
+import clapback from "../Images/clapback.png";
+import clapbackVideo from "../Images/clapback.mp4";
 
 export interface Project {
   title: string;
@@ -122,6 +126,26 @@ export const projects: Project[] = [
     ],
   },
   {
+    title: "Tribalize",
+    url: "http://www.tribalize.xyz/",
+    description:
+      "Find unique, off-color Magic: The Gathering tribes to build more interesting decks",
+    imageUrl: tribalize,
+    videoUrl: tribalizeVideo,
+    tags: [
+      "javascript",
+      "react",
+      "node",
+      "express",
+      "prisma",
+      "socket.io",
+      "SQL",
+      "docker",
+      "VPS",
+      "cronjobs",
+    ],
+  },
+  {
     title: "LogMeIn Log Analyzer",
     url: "https://github.com/Naught0/LogMeIn-Log-Analyzer",
     description:
@@ -136,5 +160,14 @@ export const projects: Project[] = [
       "text parsing",
       "version control",
     ],
+  },
+  {
+    title: "Clapback",
+    url: "https://jamese.dev/clapback",
+    description:
+      "The ultimate website for the refined 21st century conversationalist where you can insert an emoji between each word you type, or generate a moCkINg SpoNGeBob mEMe",
+    imageUrl: clapback,
+    videoUrl: clapbackVideo,
+    tags: ["HTML5", "CSS", "javascript", "jquery"],
   },
 ];
