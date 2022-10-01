@@ -99,16 +99,16 @@ export const ProjectCard: FC<ProjectCardProps> = ({
       className={`${
         canExpand
           ? "max-w-full lg:w-2/3 drop-shadow-lg"
-          : "md:hover:scale-105 md:cursor-pointer flex-shrink-0 flex-grow-0 w-fit max-w-full md:max-w-sm xl:max-w-xl"
+          : "md:hover:scale-[1.048] md:cursor-pointer flex-shrink-0 flex-grow-0 w-fit max-w-full md:max-w-sm xl:max-w-xl"
       }
-      m-auto !transition-transform hover:z-50 p-10 bg-stone-50 dark:bg-black 
+      m-auto transition-all hover:z-50 p-10 bg-stone-50 dark:bg-black 
       rounded shadow-black dark:border dark:border-slate-800 animate-fadeIn
-      hover:max-h-max max-h-min drop-shadow-md
+      hover:max-h-max max-h-min drop-shadow-md transform-gpu
       }`}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
       onClick={() => {
-        if (!canExpand && window.innerWidth >= 1024) return toggleExpand(index);
+        if (!canExpand && window.innerWidth >= 768) return toggleExpand(index);
       }}
       ref={outsideRef}
     >
@@ -182,19 +182,13 @@ export const ProjectCard: FC<ProjectCardProps> = ({
                   className="rounded-md max-w-full"
                 />
               )}
-              {isHovering && (
-                <div className="animate-fadeIn hidden md:block">
-                  <Tags tags={tags} />
-                </div>
-              )}
             </div>
           )}
-          <div className="block md:hidden">
+          <div className="block">
             <Tags tags={tags} />
           </div>
           {canExpand && (
             <div className="flex flex-grow flex-col">
-              <Tags tags={tags} />
               <div className="m-auto mt-2">
                 {videoUrl ? (
                   <Video videoUrl={videoUrl} playing={true} ref={videoRef} />
