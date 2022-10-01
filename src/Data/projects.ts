@@ -25,7 +25,7 @@ export const projects: Project[] = [
     title: "combinator",
     url: "https://mtgcombinator.com",
     description:
-      "Paste in your Magic: The Gathering deck & immediately get an overview of what combos, loops, and shenanigans are inside",
+      "Paste in your Magic: The Gathering deck & immediately get an overview of what combos, loops, and shenanigans are inside. Also suggests combos that only require the addition of one or two more cards",
     imageUrl: mtgCombinator,
     videoUrl: combinatorVideo,
     tags: [
