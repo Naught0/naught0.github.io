@@ -1,10 +1,12 @@
+import { readFileSync } from "fs";
+
 export const projects: Project[] = [
   {
     title: "combinator",
     slug: "combinator",
     url: "https://mtgcombinator.com",
     description:
-      "Paste in your Magic: The Gathering deck & immediately get an overview of what combos, loops, and shenanigans are inside. Also suggests combos that only require the addition of one or two more cards",
+      "Paste in a link to your Magic: The Gathering deck & immediately get an overview of what combos, loops, and shenanigans are inside. Also suggests combos that only require a single extra card.",
     imageUrl: "/mtgCombinator.png",
     videoUrl: "/mtgCombinator.mp4",
     tags: [
