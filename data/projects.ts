@@ -1,5 +1,3 @@
-import { readFileSync } from "fs";
-
 export const projects: Project[] = [
   {
     title: "combinator",
@@ -8,14 +6,16 @@ export const projects: Project[] = [
     description:
       "Paste in a link to your Magic: The Gathering deck & immediately get an overview of what combos, loops, and shenanigans are inside. Also suggests combos that only require a single extra card.",
     imageUrl: "/mtgCombinator.png",
-    videoUrl: "/mtgCombinator.mp4",
     tags: [
       "python",
       "flask",
+      "fastapi",
       "pandas",
       "typescript",
       "react",
-      "web hosting",
+      "webhosting",
+      "docker",
+      "cloudflare pages",
       "google cloud run",
       "docker",
     ],
@@ -26,7 +26,6 @@ export const projects: Project[] = [
     description:
       "An internal web app that acts as an ETL from competitor APIs to our platform. Solo designed and developed from the ground up in 3 months",
     imageUrl: "/rechargeMigr8.png",
-    videoUrl: "/migr8.mp4",
     tags: [
       "python",
       "asyncio",
@@ -118,7 +117,6 @@ export const projects: Project[] = [
     description:
       "Find unique, off-color Magic: The Gathering tribes to build more interesting decks",
     imageUrl: "/tribalize.png",
-    videoUrl: "/tribalize.mp4",
     tags: [
       "javascript",
       "react",
@@ -156,7 +154,6 @@ export const projects: Project[] = [
     description:
       "The ultimate website for the refined 21st century conversationalist where you can insert an emoji between each word you type, or generate a moCkINg SpoNGeBob mEMe",
     imageUrl: "/clapback.png",
-    videoUrl: "/clapback.mp4",
     tags: ["HTML5", "CSS", "javascript", "jquery"],
   },
 ];

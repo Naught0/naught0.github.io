@@ -5,6 +5,5 @@ interface Project {
   blog?: string;
   description: string;
   imageUrl: string;
-  videoUrl?: string;
   tags: string[];
 }

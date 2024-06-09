@@ -3,6 +3,7 @@ import "./globals.css";
 
 import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
+import { Footer } from "@/components/footer";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         )}
       >
         {children}
+        <Footer />
       </body>
     </html>
   );
