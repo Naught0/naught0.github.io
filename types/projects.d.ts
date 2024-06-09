@@ -1,4 +1,5 @@
 interface Project {
+  slug: string;
   title: string;
   url?: string;
   description: string;
