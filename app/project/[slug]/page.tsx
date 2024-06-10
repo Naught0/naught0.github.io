@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import { micromark } from "micromark";
 import { gfm, gfmHtml } from "micromark-extension-gfm";
 import { notFound } from "next/navigation";
-import { readFileSync } from "fs";
+import { existsSync, readFileSync } from "fs";
 import { Badge } from "@/components/ui/badge";
 
 export const generateStaticParams = () => {
@@ -37,15 +37,17 @@ export default function Project({ params: { slug } }: Props) {
   const project = projects.find((p) => p.slug === slug);
   if (!project) notFound();
 
-  const thing = readFileSync(`./data/posts/${project.slug}.md`).toString();
-  if (!thing) notFound();
+  const path = `./data/posts/${project.slug}.md`;
+  if (!existsSync(path)) notFound();
+
+  const markdown = readFileSync(path).toString();
 
   return (
     <article>
       <div
         dangerouslySetInnerHTML={{
-          __html: thing
-            ? micromark(thing, {
+          __html: markdown
+            ? micromark(markdown, {
                 extensions: [gfm()],
                 htmlExtensions: [gfmHtml()],
                 allowDangerousHtml: true,

@@ -1,14 +1,14 @@
 import { cn } from "@/lib/utils";
-import { HTMLProps, PropsWithChildren } from "react";
+import React, { HTMLProps, PropsWithChildren } from "react";
 
-export const Link = (
+export const IconLink = (
   props: HTMLProps<HTMLAnchorElement> & PropsWithChildren,
 ) => {
   return (
     <a
       {...props}
       className={cn(
-        "hover:text-byzantine-200 inline-flex items-center gap-1 text-slate-200 transition-colors",
+        "text-3xl opacity-90 transition-all hover:scale-105 hover:opacity-100 sm:text-4xl",
         props.className,
       )}
     >
