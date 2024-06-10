@@ -10,9 +10,9 @@ import {
 import { LuExternalLink } from "react-icons/lu";
 
 export const ProjectCard = (props: Project) => {
-  const href = `/project/${props.slug}`;
+  const href = `/blog/${props.slug}`;
   return (
-    <Card className="flex h-fit max-h-screen basis-full flex-row flex-wrap items-center justify-center gap-3 py-3">
+    <Card className="flex h-fit basis-full flex-row flex-wrap items-center justify-center gap-3 py-3">
       <div className="flex basis-full flex-col gap-3 md:basis-5/12">
         <CardHeader>
           <CardTitle>
@@ -31,9 +31,11 @@ export const ProjectCard = (props: Project) => {
           </CardTitle>
         </CardHeader>
 
-        <div className="flex w-full justify-center md:hidden">
-          <img src={props.imageUrl} className="max-w-[80vw]" />
-        </div>
+        {props.imageUrl && (
+          <div className="flex w-full justify-center md:hidden">
+            <img src={props.imageUrl} className="max-h-[60vh]" />
+          </div>
+        )}
         <CardFooter className="flex-col gap-6 py-3">
           <CardDescription>{props.description}</CardDescription>
           {props.hasBlog && (
@@ -45,14 +47,16 @@ export const ProjectCard = (props: Project) => {
               })}
               href={href}
             >
-              Read blog
+              read blog
             </Link>
           )}
         </CardFooter>
       </div>
-      <div className="hidden w-full basis-full justify-center md:flex md:basis-1/2">
-        <img src={props.imageUrl} className="w-full max-w-screen-sm" />
-      </div>
+      {props.imageUrl && (
+        <div className="hidden w-full basis-full justify-center md:flex md:basis-1/2">
+          <img src={props.imageUrl} className="w-full max-w-screen-sm" />
+        </div>
+      )}
     </Card>
   );
 };

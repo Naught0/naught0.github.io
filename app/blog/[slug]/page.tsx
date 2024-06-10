@@ -1,5 +1,3 @@
-import { ProjectCarouselItem } from "@/components/project-carousel-item";
-import { Carousel } from "@/components/ui/carousel";
 import { projects } from "@/data/projects";
 import type { Metadata } from "next";
 import { micromark } from "micromark";
