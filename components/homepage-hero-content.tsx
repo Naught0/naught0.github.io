@@ -29,7 +29,7 @@ export const HomepageHeroContent = () => {
         </div>
 
         <HeroLink href="#projects">projects</HeroLink>
-        <HeroLink href="#projects">resumé</HeroLink>
+        <HeroLink href="/resume.pdf">resumé</HeroLink>
         <HeroLink href="/blog">blog</HeroLink>
       </div>
       <div className="-ml-16 hidden basis-1/2 sm:block">
