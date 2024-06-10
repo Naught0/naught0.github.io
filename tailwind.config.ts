@@ -5,6 +5,11 @@ const config = {
   content: ["./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
+    fontFamily: {
+      sans: ["var(--font-sans)", "sans-serif"],
+      display: ["var(--font-display)", "Times New Roman", "serif"],
+      mono: ["var(--font-mono)", "Monaco", "Consolas", "monospace"],
+    },
     container: {
       center: true,
       padding: "2rem",

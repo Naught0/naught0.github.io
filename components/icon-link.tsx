@@ -8,7 +8,7 @@ export const IconLink = (
     <a
       {...props}
       className={cn(
-        "text-3xl opacity-90 transition-all hover:scale-105 hover:opacity-100 sm:text-4xl",
+        "text-3xl transition-all hover:scale-105 hover:opacity-100 sm:text-4xl",
         props.className,
       )}
     >

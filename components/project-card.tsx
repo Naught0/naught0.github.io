@@ -44,7 +44,7 @@ export const ProjectCard = (props: Project) => {
             })}
             href={href}
           >
-            Read more
+            Read blog
           </Link>
         </CardFooter>
       </div>
