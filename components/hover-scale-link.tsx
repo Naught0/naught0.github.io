@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import React, { HTMLProps, PropsWithChildren } from "react";
 
-export const IconLink = (
+export const HoverScaleLink = (
   props: HTMLProps<HTMLAnchorElement> & PropsWithChildren,
 ) => {
   return (
