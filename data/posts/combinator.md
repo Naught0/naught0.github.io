@@ -82,6 +82,6 @@ Finally, need to quickly find which cards say "infect" in your deck? You can sea
 
 ## Conclusion
 
-My friends and I use this site almost every time we play MTG, which is extremely gratifying. I am forever iterating on the UI of the site, and I have a dozen ideas bouncing around at any given time. Eventually, I may forgo the python API (which costs me a whopping $0.05/mo from Google) and use Cloudflare Workers for completely free hosting.
+My friends and I use this site almost every time we play MTG, which is extremely gratifying. I am always iterating on the UI, and I usually have a dozen ideas bouncing around at once. Eventually, I may forgo the python API (which costs me a whopping $0.05/mo from Google) and use Cloudflare Workers for completely free hosting.
 
 [Check out the source on Github](https://github.com/naught0/combinator)
