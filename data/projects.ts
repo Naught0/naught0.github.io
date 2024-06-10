@@ -1,3 +1,5 @@
+import { existsSync } from "fs";
+
 export const projects: Project[] = [
   {
     title: "combinator",
@@ -156,4 +158,7 @@ export const projects: Project[] = [
     imageUrl: "/clapback.png",
     tags: ["HTML5", "CSS", "javascript", "jquery"],
   },
-];
+].map((proj) => ({
+  ...proj,
+  hasBlog: existsSync(`./data/posts/${proj.slug}.md`),
+}));

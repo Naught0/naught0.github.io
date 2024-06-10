@@ -36,16 +36,18 @@ export const ProjectCard = (props: Project) => {
         </div>
         <CardFooter className="flex-col gap-6 py-3">
           <CardDescription>{props.description}</CardDescription>
-          <Link
-            className={buttonVariants({
-              variant: "outline",
-              size: "lg",
-              className: "text-base lg:text-lg",
-            })}
-            href={href}
-          >
-            Read blog
-          </Link>
+          {props.hasBlog && (
+            <Link
+              className={buttonVariants({
+                variant: "outline",
+                size: "lg",
+                className: "text-base lg:text-lg",
+              })}
+              href={href}
+            >
+              Read blog
+            </Link>
+          )}
         </CardFooter>
       </div>
       <div className="hidden w-full basis-full justify-center md:flex md:basis-1/2">
