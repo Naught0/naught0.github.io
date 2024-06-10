@@ -11,7 +11,7 @@ export function Projects() {
       >
         projects
       </p>
-      <div className="flex flex-row flex-wrap justify-center gap-6">
+      <div className="flex flex-row flex-wrap justify-center gap-6 sm:gap-12">
         {projects.map((project) => (
           <ProjectCard {...project} />
         ))}

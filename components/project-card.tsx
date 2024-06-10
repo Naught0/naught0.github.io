@@ -12,7 +12,7 @@ import { LuExternalLink } from "react-icons/lu";
 export const ProjectCard = (props: Project) => {
   const href = `/project/${props.slug}`;
   return (
-    <Card className="flex h-fit basis-full flex-row flex-wrap items-center justify-center gap-3 py-3">
+    <Card className="flex h-fit max-h-screen basis-full flex-row flex-wrap items-center justify-center gap-3 py-3">
       <div className="flex basis-full flex-col gap-3 md:basis-5/12">
         <CardHeader>
           <CardTitle>

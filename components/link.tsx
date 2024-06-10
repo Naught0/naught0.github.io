@@ -8,7 +8,7 @@ export const Link = (
     <a
       {...props}
       className={cn(
-        "hover:text-byzantine-200 inline-flex items-center gap-1 text-slate-300 transition-colors",
+        "inline-flex items-center gap-1 text-primary-foreground transition-colors hover:text-slate-400",
         props.className,
       )}
     >
