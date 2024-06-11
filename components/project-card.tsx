@@ -35,18 +35,32 @@ export const ProjectCard = (props: Project) => {
         )}
         <CardFooter className="flex-col gap-6 py-3">
           <CardDescription>{props.description}</CardDescription>
-          {props.hasBlog && (
-            <Link
-              className={buttonVariants({
-                variant: "outline",
-                size: "lg",
-                className: "text-base lg:text-lg",
-              })}
-              href={href}
-            >
-              read blog
-            </Link>
-          )}
+          <div className="flex flex-row flex-wrap gap-3">
+            {props.sourceUrl && (
+              <Link
+                className={buttonVariants({
+                  variant: "outline",
+                  size: "lg",
+                  className: "text-base lg:text-lg",
+                })}
+                href={props.sourceUrl}
+              >
+                source code
+              </Link>
+            )}
+            {props.hasBlog && (
+              <Link
+                className={buttonVariants({
+                  variant: "outline",
+                  size: "lg",
+                  className: "text-base lg:text-lg",
+                })}
+                href={href}
+              >
+                read blog
+              </Link>
+            )}
+          </div>
         </CardFooter>
       </div>
       {props.imageUrl && (
