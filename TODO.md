@@ -1,4 +1,3 @@
 - [ ] syntax highlighting
   - [ ] Move to new markdown compiler? rehype?
 - [ ] Other blogposts
-- [ ] Create double-border effect for homepage links (make borders merge when hovered?)
