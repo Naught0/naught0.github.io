@@ -45,7 +45,7 @@ export const ProjectCard = (props: Project) => {
                 })}
                 href={props.sourceUrl}
               >
-                source code
+                source
               </Link>
             )}
             {props.hasBlog && (
@@ -57,7 +57,7 @@ export const ProjectCard = (props: Project) => {
                 })}
                 href={href}
               >
-                read blog
+                blog
               </Link>
             )}
           </div>
