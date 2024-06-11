@@ -8,6 +8,8 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
+import { HTMLProps } from "react";
+import { cn } from "@/lib/utils";
 
 export const ProjectCard = (props: Project) => {
   const href = `/blog/${props.slug}`;
@@ -28,7 +30,7 @@ export const ProjectCard = (props: Project) => {
 
         {props.imageUrl && (
           <div className="flex w-full justify-center md:hidden">
-            <img src={props.imageUrl} className="max-h-[60vh]" />
+            <CardImage src={props.imageUrl} className="max-h-[60vh]" />
           </div>
         )}
         <CardFooter className="flex-col gap-6 py-3">
@@ -49,9 +51,13 @@ export const ProjectCard = (props: Project) => {
       </div>
       {props.imageUrl && (
         <div className="hidden w-full basis-full justify-center md:flex md:basis-1/2">
-          <img src={props.imageUrl} className="w-full max-w-screen-sm" />
+          <CardImage src={props.imageUrl} className="w-full max-w-screen-sm" />
         </div>
       )}
     </Card>
   );
 };
+
+function CardImage(props: HTMLProps<HTMLImageElement>) {
+  return <img {...props} className={cn(props.className, "rounded")} />;
+}

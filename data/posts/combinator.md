@@ -8,19 +8,9 @@
 
 [Combinator](https://mtgcombinator.com) is a tool to see what combos a Magic: The Gathering (MTG) deck contains. A combo is typically 2 or more cards which, when played together, will interact to form an often infinite loop, winning the game or putting you absurdly ahead.
 
-When I began making Combinator, there was no great way to find combos in an arbitrary collection of cards, other than browsing [EDHREC](https://edhrec.com/). I needed a website that let me quickly discern what combinations of cards I should or could assemble while I was playing.
+When I began making Combinator, there was no easy way to find combos in a given deck list from any of the most popular deck-building websites. [EDHREC](https://edhrec.com/) is great, but it wasn't exactly what I wanted. I needed a website that let me quickly discern what combinations of cards I should or could assemble while I was playing.
 
 I also **suck** at MTG, so I definitely wanted to include the steps for executing some of the more elaborate combos.
-
-## Tech
-
-Before we go too far into specifics, an overview of the stack. The site has evolved a few times, but generally I'm using python for the backend and React for the frontend.
-
-**Backend**: Flask (later FastAPI), Pandas
-
-**Frontend**: React, Bulma CSS (later, a combo of Bulma + Tailwind)
-
-**Hosting**: I originally hosted the site entirely on Google Cloud Run. This meant that the python app was serving the React frontend only after a container cold start, which wasn't ideal. I eventually moved the frontend to Cloudflare Pages, which gets cached and instantly served for free, leaving the python API to be served by Google.
 
 ## Assembling the Wombo Combo
 
@@ -43,11 +33,13 @@ def find_matches(data: list[dict], to_match: set[str]):
 
 This checks the entire database of combos against the cards in the supplied deck.
 
-Et voila, we now have all combinations of cards which occur in the database that are also present in our deck. This operation isn't exactly efficient, but it works reasonably well for a DB which contains 30,000+ combos when checked against 60+ card decks.
+Et voila, I now have all combinations of cards which occur in the database that are also present in our deck. This operation isn't exactly efficient, but it works reasonably well for a DB which contains 30,000+ combos when checked against 60+ card decks.
 
-Sometime around the beginning of 2024 Commander Spellbook revamped their site, and their frontend became an API consumer instead of handling lookups client-side. This meant I was no longer able to keep an updated list of combos, so I too became a consumer of their API. This removed the need for pandas and any meaningful data crunching on the server.
+### The Great Changening
 
-The latest version of the site simply POSTs a list of cards to the Commander Spellbook API to get the same combinations.
+Sometime around the beginning of 2024 Commander Spellbook revamped their site. They no longer provided their entire database so freely (a boon to page load times I'm sure!), so I had to start using their newly created API instead.
+
+The latest version of Combinator sends a list of cards to the Commander Spellbook API and parses the results to get roughly the same output as before.
 
 ```py
 @router.post("/combo", response_model=Results)
@@ -58,9 +50,23 @@ def combo_search(data: ComboSearchPayload):
     ).json()["results"]
 ```
 
-And it really isn't any faster than when I used pandas! Oh well.
+And it isn't any faster than when we did the calculations ourselves! Oh well.
 
-## Features
+
+## Stack Summary
+
+The site has evolved over time, but generally I'm using python for the backend and React for the frontend.
+
+**Backend**: Flask (later FastAPI), Pandas
+
+**Frontend**: React (originally [CRA](https://create-react-app.dev/) but moved to [Vite](https://vitejs.dev/)), Bulma CSS (later, a combo of Bulma + Tailwind)
+
+## Hosting
+
+I originally hosted the site entirely on Google Cloud Run. This meant that the python app was serving the React frontend only after a container cold start, which wasn't ideal. I eventually moved the frontend to Cloudflare Pages which gets cached and instantly served for free. The python API is still hosted on Google Cloud Run.
+
+
+## A Brief Tour
 
 You can search for your [Moxfield](https://moxfield.com) username, filter your decks, and click on any to get a list of combos it contains. You can also search with a link to a deck from Moxfield, [Archidekt](https://archidekt.com) or [MTG Goldfish](https://www.mtggoldfish.com/).
 
@@ -83,5 +89,7 @@ Finally, need to quickly find which cards say "infect" in your deck? You can sea
 ## Conclusion
 
 My friends and I use this site almost every time we play MTG, which is extremely gratifying. I am always iterating on the UI, and I usually have a dozen ideas bouncing around at once. Eventually, I may forgo the python API (which costs me a whopping $0.05/mo from Google) and use Cloudflare Workers for completely free hosting.
+
+See the live site at [mtgcombinator.com](https://mtgcombinator.com)
 
 [Check out the source on Github](https://github.com/naught0/combinator)

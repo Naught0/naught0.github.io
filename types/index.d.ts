@@ -12,6 +12,7 @@ interface Project {
 interface BlogPost {
   slug: string;
   title: string;
+  imageUrl?: string;
   description: string;
   tags: string[];
 }

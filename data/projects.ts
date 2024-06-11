@@ -2,12 +2,29 @@ import { existsSync } from "fs";
 
 export const projects: Project[] = [
   {
+    title: "Colorado Avalanche Information Center (CAIC)",
+    slug: "caic",
+    description:
+      "Interactive Map, tables, & misc. other components for the CAIC website to forecast, warn, & catalog avalanches in Colorado. Live Q4 2022",
+    imageUrl: "/caic.jpeg",
+    url: "https://avalanche.state.co.us",
+    tags: [
+      "react",
+      "google maps",
+      "google places",
+      "caching",
+      "CI/CD",
+      "agile",
+      "design implementation",
+    ],
+  },
+  {
     title: "combinator",
     slug: "combinator",
     url: "https://mtgcombinator.com",
     description:
       "Paste in a link to your Magic: The Gathering deck & immediately get an overview of what combos, loops, and shenanigans are inside. Also suggests combos that only require a single extra card.",
-    imageUrl: "/mtgCombinator.png",
+    imageUrl: "/combinator.jpeg",
     tags: [
       "python",
       "flask",
@@ -27,8 +44,8 @@ export const projects: Project[] = [
     title: "migr8",
     slug: "migr8",
     description:
-      "An internal web app that acts as an ETL from competitor APIs to our platform. Solo designed and developed from the ground up in 3 months",
-    imageUrl: "/rechargeMigr8.png",
+      "A production web app used by Recharge users to migrate data from their old system. Solo designed and developed from the ground up.",
+    imageUrl: "/migr8.jpeg",
     tags: [
       "python",
       "asyncio",
@@ -47,28 +64,10 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Colorado Avalanche Information Center (CAIC)",
-    slug: "caic",
-    description:
-      "Interactive Map, tables, & misc. other components for the CAIC website to forecast, warn, & catalog avalanches in Colorado. Live Q4 2022",
-    imageUrl: "/avalanche.state.co.us.png",
-    url: "https://avalanche.state.co.us",
-    tags: [
-      "react",
-      "google maps",
-      "google places",
-      "caching",
-      "CI/CD",
-      "agile",
-      "design implementation",
-    ],
-  },
-  {
     title: "jamese.dev",
     slug: "jamese-dev",
-    description:
-      "My personal website (this site!) displaying some of my projects & skills",
-    imageUrl: "/personalSite.png",
+    description: "My personal website displaying some of my projects & skills",
+    imageUrl: "/jamese-dev.jpeg",
     tags: [
       "typescript",
       "react",
@@ -86,7 +85,7 @@ export const projects: Project[] = [
     slug: "asyncurban",
     description:
       "An asynchronous python wrapper around the UrbanDictionary API. Used by over >7.6k projects.",
-    imageUrl: "/asyncurban.png",
+    imageUrl: "/asyncurban.jpeg",
     tags: [
       "python",
       "asyncio",

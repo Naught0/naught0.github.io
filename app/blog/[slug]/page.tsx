@@ -1,13 +1,13 @@
-import { projects } from "@/data/projects";
-import type { Metadata } from "next";
+import { Badge } from "@/components/ui/badge";
+import { blogs } from "@/data/blogs";
+import { existsSync, readFileSync } from "fs";
 import { micromark } from "micromark";
 import { gfm, gfmHtml } from "micromark-extension-gfm";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { existsSync, readFileSync } from "fs";
-import { Badge } from "@/components/ui/badge";
 
 export const generateStaticParams = () => {
-  return projects.map(({ slug }) => ({
+  return blogs.map(({ slug }) => ({
     slug,
   }));
 };
@@ -17,13 +17,13 @@ export const generateMetadata = ({
 }: {
   params: { slug: string };
 }): Metadata => {
-  const project = projects.find((p) => p.slug === params.slug);
-  if (!project) return {};
+  const post = blogs.find((p) => p.slug === params.slug);
+  if (!post) return {};
 
   return {
-    title: `James' Projects: ${project.title}`,
+    title: `James' Projects: ${post.title}`,
     authors: { name: "Jamese E", url: "https://jamese.dev" },
-    description: project.description,
+    description: post.description,
   };
 };
 
@@ -32,10 +32,10 @@ type Props = {
 };
 
 export default function Project({ params: { slug } }: Props) {
-  const project = projects.find((p) => p.slug === slug);
-  if (!project) notFound();
+  const post = blogs.find((p) => p.slug === slug);
+  if (!post) notFound();
 
-  const path = `./data/posts/${project.slug}.md`;
+  const path = `./data/posts/${post.slug}.md`;
   if (!existsSync(path)) notFound();
 
   const markdown = readFileSync(path).toString();
@@ -55,7 +55,7 @@ export default function Project({ params: { slug } }: Props) {
       />
       <hr />
       <span className="inline-flex flex-wrap gap-2">
-        {project.tags.map((tag) => (
+        {post.tags.map((tag) => (
           <Badge key={tag} variant="secondary" className="text-nowrap">
             {tag}
           </Badge>
