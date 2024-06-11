@@ -5,25 +5,17 @@ export const projects: Project[] = [
     title: "Colorado Avalanche Information Center (CAIC)",
     slug: "caic",
     description:
-      "Interactive Map, tables, & misc. other components for the CAIC website to forecast, warn, & catalog avalanches in Colorado. Live Q4 2022",
+      "Interactive avalanche forecasts & reports with graphics, maps, data tables, and complex forms",
     imageUrl: "/caic.jpeg",
     url: "https://avalanche.state.co.us",
-    tags: [
-      "react",
-      "google maps",
-      "google places",
-      "caching",
-      "CI/CD",
-      "agile",
-      "design implementation",
-    ],
+    tags: ["react", "google maps", "google places", "CI/CD", "agile"],
   },
   {
     title: "combinator",
     slug: "combinator",
     url: "https://mtgcombinator.com",
     description:
-      "Paste in a link to your Magic: The Gathering deck & immediately get an overview of what combos, loops, and shenanigans are inside. Also suggests combos that only require a single extra card.",
+      "Paste in a link to your Magic: The Gathering deck & immediately get an overview of what combos, loops, and shenanigans are inside. Also suggests combos that only require a single extra card",
     imageUrl: "/combinator.jpeg",
     tags: [
       "python",
@@ -44,7 +36,8 @@ export const projects: Project[] = [
     title: "migr8",
     slug: "migr8",
     description:
-      "A production web app used by Recharge users to migrate data from their old system. Solo designed and developed from the ground up.",
+      "A production web app used by Recharge customers to migrate data from their old system to ours. Solo designed and developed from the ground up",
+    url: "https://migr8.rechargeapps.com",
     imageUrl: "/migr8.jpeg",
     tags: [
       "python",
@@ -84,7 +77,7 @@ export const projects: Project[] = [
     sourceUrl: "https://github.com/naught0/asyncurban",
     slug: "asyncurban",
     description:
-      "An asynchronous python wrapper around the UrbanDictionary API. Used by over >7.6k projects.",
+      "An asynchronous python wrapper around the UrbanDictionary API. Used by over >8,000 projects",
     imageUrl: "/asyncurban.jpeg",
     tags: [
       "python",
@@ -138,7 +131,7 @@ export const projects: Project[] = [
     sourceUrl: "https://github.com/naught0/clapback",
     slug: "clapback",
     description:
-      "The ultimate website for the refined 21st century conversationalist where you can insert an emoji between each word you type, or generate a moCkINg SpoNGeBob mEMe",
+      "The ultimate website for the refined 21st century conversationalist. You can insert an emoji between each word you type or generate a moCkINg SpoNGeBob mEMe – the possibilities are endless",
     imageUrl: "/clapback.jpeg",
     tags: ["HTML", "CSS", "javascript", "jquery"],
   },
