@@ -1,4 +1,4 @@
-# Combinator
+# Making Combinator
 
 > Get an overview of what combos, infinite loops, and shenanigans are inside your Magic: The Gathering deck.
 

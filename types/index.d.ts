@@ -8,3 +8,10 @@ interface Project {
   imageUrl: string;
   tags: string[];
 }
+
+interface BlogPost {
+  slug: string;
+  title: string;
+  description: string;
+  tags: string[];
+}

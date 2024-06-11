@@ -1,3 +1,4 @@
+import { BiLinkExternal } from "react-icons/bi";
 import { Link } from "./link";
 import { buttonVariants } from "./ui/button";
 import {
@@ -7,23 +8,17 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import { LuExternalLink } from "react-icons/lu";
 
 export const ProjectCard = (props: Project) => {
   const href = `/blog/${props.slug}`;
   return (
-    <Card className="flex h-fit basis-full flex-row flex-wrap items-center justify-center gap-3 py-3">
+    <Card className="flex h-fit basis-full flex-row flex-wrap items-center justify-center gap-3 bg-black py-3">
       <div className="flex basis-full flex-col gap-3 md:basis-5/12">
         <CardHeader>
           <CardTitle>
             {props.url ? (
-              <Link
-                href={props.url}
-                target="_blank"
-                rel="noopener"
-                className="inline-flex"
-              >
-                {props.title} <LuExternalLink />
+              <Link href={props.url} target="_blank" rel="noopener">
+                {props.title} <BiLinkExternal className="inline" />
               </Link>
             ) : (
               props.title

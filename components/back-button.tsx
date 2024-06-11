@@ -7,8 +7,8 @@ import { useRouter } from "next/navigation";
 export const BackButton = () => {
   const { back } = useRouter();
   return (
-    <Button className="text-2xl" onClick={back}>
-      <BiArrowBack /> back
+    <Button className="text-2xl" onClick={back} size={"icon"}>
+      <BiArrowBack />
     </Button>
   );
 };

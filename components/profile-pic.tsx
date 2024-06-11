@@ -11,7 +11,7 @@ export const ProfilePic = () => {
       ></div>
       <div
         style={{ gridArea: "1/1" }}
-        className="rounded-full bg-gradient-to-r from-black/30 to-black/0"
+        className="rounded-full bg-gradient-to-r sm:from-black/30 sm:to-black/0"
       ></div>
     </div>
   );

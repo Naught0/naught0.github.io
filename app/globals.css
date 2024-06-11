@@ -6,6 +6,7 @@
   :root {
     --ghost-white: 240, 100%, 99%, 1;
     --rich-black: 206, 47%, 5%, 1;
+    --supablue: 208, 66%, 55%;
     --charcoal: 208, 31%, 25%, 1;
     --hookers-green: 153, 14%, 45%, 1;
     --bright-pink-crayola: 353, 66%, 66%, 1;
@@ -28,7 +29,7 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
+    --accent: var(--supablue);
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -60,7 +61,7 @@
     --muted: var(--charcoal);
     --muted-foreground: var(--ghost-white);
 
-    --accent: 217.2 32.6% 17.5%;
+    --accent: var(--supablue);
     --accent-foreground: 210 40% 98%;
 
     --destructive: var(--bright-pink-crayola);
@@ -79,4 +80,8 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }

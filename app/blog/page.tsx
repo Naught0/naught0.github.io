@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <div className="flex justify-center px-6 sm:px-12">
       <article className="lg-py-24 flex flex-col items-center gap-6 py-12 sm:max-w-screen-lg sm:gap-12">
-        <p className="font-display text-6xl font-black">Blog</p>
+        <p className="font-display text-6xl font-black">Blog posts</p>
         {projects
           .filter((p) => p.hasBlog)
           .map((project) => (

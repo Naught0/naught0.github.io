@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head />
       <body
         className={cn(
-          "dark min-h-screen bg-background font-sans antialiased",
+          "dark min-h-screen bg-black font-sans antialiased",
           fontSans.variable,
           fontDisplay.variable,
           fontMono.variable,

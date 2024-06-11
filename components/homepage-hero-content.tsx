@@ -5,7 +5,7 @@ import { HeroLink } from "./hero-link";
 
 export const HomepageHeroContent = () => {
   return (
-    <div className="flex flex-col items-center justify-center font-display sm:flex-row">
+    <div className="font-display flex flex-col items-center justify-center sm:flex-row">
       <div className="flex sm:hidden">
         <ProfilePic />
       </div>
@@ -28,10 +28,10 @@ export const HomepageHeroContent = () => {
           </div>
         </div>
 
-        <HeroLink className="text-left" href="#projects">
+        <HeroLink className="text-right" href="#projects">
           projects
         </HeroLink>
-        <HeroLink className="text-center" href="/resume.pdf">
+        <HeroLink className="text-right" href="/resume.pdf">
           resumé
         </HeroLink>
         <HeroLink className="text-right" href="/blog">

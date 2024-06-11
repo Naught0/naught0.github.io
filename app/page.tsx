@@ -10,7 +10,7 @@ export default function Home() {
           <div className="flex flex-row justify-start gap-3 py-3 text-5xl font-bold"></div>
         </div>
       </div>
-      <div className="flex w-full justify-center bg-white/5">
+      <div className="flex w-full justify-center bg-background">
         <Projects />
       </div>
     </main>
