@@ -1,5 +1,4 @@
 import { Tags } from "@/components/tags";
-import { Badge } from "@/components/ui/badge";
 import { blogs } from "@/data/blogs";
 import { existsSync, readFileSync } from "fs";
 import { micromark } from "micromark";
@@ -22,7 +21,7 @@ export const generateMetadata = ({
   if (!post) return {};
 
   return {
-    title: `James' Projects: ${post.title}`,
+    title: post.title,
     authors: { name: "Jamese E", url: "https://jamese.dev" },
     description: post.description,
   };
