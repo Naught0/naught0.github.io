@@ -1,4 +1,5 @@
 import { Link } from "./link";
+import { Tags } from "./tags";
 import { buttonVariants } from "./ui/button";
 import {
   Card,
@@ -14,6 +15,7 @@ export const BlogCard = (props: BlogPost) => {
       <div className="flex basis-full flex-col gap-3 md:basis-5/12">
         <CardHeader>
           <CardTitle>{props.title}</CardTitle>
+          <p className="text-slate-300">{props.createdAt}</p>
         </CardHeader>
 
         {props.imageUrl && (
@@ -21,15 +23,16 @@ export const BlogCard = (props: BlogPost) => {
             <img src={props.imageUrl} className="max-h-[50vh] rounded" />
           </div>
         )}
-        <CardFooter className="flex-col gap-6 py-3">
+        <CardFooter className="flex-col gap-3">
           <CardDescription className="text-base">
             {props.description}
           </CardDescription>
+          <Tags tags={props.tags} />
           <Link
             className={buttonVariants({
               variant: "outline",
               size: "lg",
-              className: "text-base lg:text-lg",
+              className: "my-3 text-base lg:text-lg",
             })}
             href={`/blog/${props.slug}`}
           >

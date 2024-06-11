@@ -1,3 +1,4 @@
+import { Tags } from "@/components/tags";
 import { Badge } from "@/components/ui/badge";
 import { blogs } from "@/data/blogs";
 import { existsSync, readFileSync } from "fs";
@@ -55,11 +56,7 @@ export default function Project({ params: { slug } }: Props) {
       />
       <hr />
       <span className="inline-flex flex-wrap gap-2">
-        {post.tags.map((tag) => (
-          <Badge key={tag} variant="secondary" className="text-nowrap">
-            {tag}
-          </Badge>
-        ))}
+        <Tags tags={post.tags} />
       </span>
     </article>
   );
