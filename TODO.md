@@ -1,6 +1,4 @@
 - [ ] syntax highlighting
   - [ ] Move to new markdown compiler? rehype?
 - [ ] Other blogposts
-- [ ] Separate blogposts data from projects data
-  - Allows for multiple blogposts per project or blogposts unrelated to projects
 - [ ] Create double-border effect for homepage links (make borders merge when hovered?)
