@@ -2,9 +2,9 @@ export const blogs: Array<BlogPost> = [
   {
     title: "Making the Combinator-inator",
     slug: "combinator",
+    createdAt: "2024-06-09",
     description:
       "A Magic: The Gathering website created to quickly visualize infinite combos in any deck.",
-
     imageUrl: "/combinator.jpeg",
     tags: [
       "python",
@@ -13,6 +13,8 @@ export const blogs: Array<BlogPost> = [
       "cloudflare",
       "google cloud",
       "docker",
+      "mtg",
+      "combinator",
     ],
   },
 ];

@@ -10,6 +10,8 @@ interface Project {
 }
 
 interface BlogPost {
+  createdAt: string;
+  updatedAt?: string;
   slug: string;
   title: string;
   imageUrl?: string;
