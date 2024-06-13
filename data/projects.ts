@@ -77,7 +77,7 @@ export const projects: Project[] = [
     sourceUrl: "https://github.com/naught0/asyncurban",
     slug: "asyncurban",
     description:
-      "An asynchronous python wrapper around the UrbanDictionary API. Used by over >8,000 projects",
+      "An asynchronous python wrapper around the UrbanDictionary API. Used by >8,000 projects",
     imageUrl: "/asyncurban.webp",
     tags: [
       "python",
