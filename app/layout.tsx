@@ -1,9 +1,8 @@
-import { Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
-import "./globals.css";
-
-import { cn } from "@/lib/utils";
-import { ReactNode } from "react";
 import { Footer } from "@/components/footer";
+import { cn } from "@/lib/utils";
+import { Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
+import { ReactNode } from "react";
+import "./globals.css";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -27,6 +26,10 @@ export const metadata = {
   title: "James' Personal Site",
   description:
     "James' (@naught0) personal site, showcasing some projects and the sporadic blog post.",
+};
+
+export const viewport = {
+  themeColor: "black",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

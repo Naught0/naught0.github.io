@@ -27,13 +27,17 @@ export const generateMetadata = ({
   if (!post) return {};
 
   const meta: Metadata = {
+    metadataBase: new URL(
+      process.env.NODE_ENV === "development"
+        ? `http://localhost:${process.env.PORT ?? 3000}`
+        : "https://jamese.dev",
+    ),
     title: post.title,
     authors: { name: "Jamese E", url: "https://jamese.dev" },
     description: post.description,
     keywords:
       "blog, portfolio, jamese, jamese.dev, naught, naught0, programming, coding, webdev, python, typescript, javascript, developer",
     openGraph: {},
-    themeColor: "#000000",
   };
 
   if (post.imageUrl) {
