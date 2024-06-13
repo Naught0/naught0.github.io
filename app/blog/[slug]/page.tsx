@@ -11,7 +11,6 @@ import remarkRehype from "remark-rehype";
 import { read } from "to-vfile";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
-import rehypeMinify from "rehype-preset-minify";
 
 export const generateStaticParams = () => {
   return blogs.map(({ slug }) => ({
