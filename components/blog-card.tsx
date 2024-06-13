@@ -20,7 +20,11 @@ export const BlogCard = (props: BlogPost) => {
 
         {props.imageUrl && (
           <div className="flex w-full justify-center md:hidden">
-            <img src={props.imageUrl} className="max-h-[50vh] rounded" />
+            <img
+              alt={props.title}
+              src={props.imageUrl}
+              className="max-h-[50vh] rounded"
+            />
           </div>
         )}
         <CardFooter className="flex-col gap-3">
@@ -44,6 +48,7 @@ export const BlogCard = (props: BlogPost) => {
         <div className="hidden w-full basis-full justify-center md:flex md:basis-1/2">
           <img
             src={props.imageUrl}
+            alt={props.title}
             className="w-full max-w-screen-sm rounded"
           />
         </div>

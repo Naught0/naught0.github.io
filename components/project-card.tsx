@@ -30,7 +30,11 @@ export const ProjectCard = (props: Project) => {
 
         {props.imageUrl && (
           <div className="flex w-full justify-center md:hidden">
-            <CardImage src={props.imageUrl} className="max-h-[60vh]" />
+            <CardImage
+              alt={props.title}
+              src={props.imageUrl}
+              className="max-h-[60vh]"
+            />
           </div>
         )}
         <CardFooter className="flex-col gap-6 py-3">
@@ -65,7 +69,11 @@ export const ProjectCard = (props: Project) => {
       </div>
       {props.imageUrl && (
         <div className="hidden w-full basis-full justify-center md:flex md:basis-1/2">
-          <CardImage src={props.imageUrl} className="w-full max-w-screen-sm" />
+          <CardImage
+            alt={props.title}
+            src={props.imageUrl}
+            className="w-full max-w-screen-sm"
+          />
         </div>
       )}
     </Card>
