@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "pnpm process-images && next build",
     "start": "next start",
     "lint": "next lint",
     "process-images": "./scripts/process-images.js",
-    "predeploy": "pnpm process-images && next build",
+    "predeploy": "next build",
     "deploy": "gh-pages --nojekyll --cname www.jamese.dev -d out"
   },
   "dependencies": {
