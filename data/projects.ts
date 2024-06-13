@@ -5,7 +5,7 @@ export const projects: Project[] = [
     title: "migr8",
     slug: "migr8",
     description:
-      "A production web app used by Recharge customers to migrate data from their old system to ours. Solo designed and developed from the ground up",
+      "A production web app used by Recharge customers to migrate data from their old system to ours. Designed and developed from the ground up by yours truly",
     url: "https://getrecharge.com",
     imageUrl: "/migr8.webp",
     tags: [
