@@ -1,3 +1,1 @@
-- [ ] syntax highlighting
-  - [ ] Move to new markdown compiler? rehype?
 - [ ] Other blogposts
