@@ -26,11 +26,21 @@ export const generateMetadata = ({
   const post = blogs.find((p) => p.slug === params.slug);
   if (!post) return {};
 
-  return {
+  const meta: Metadata = {
     title: post.title,
     authors: { name: "Jamese E", url: "https://jamese.dev" },
     description: post.description,
+    keywords:
+      "blog, portfolio, jamese, jamese.dev, naught, naught0, programming, coding, webdev, python, typescript, javascript, developer",
+    openGraph: {},
+    themeColor: "#000000",
   };
+
+  if (post.imageUrl) {
+    meta.openGraph!.images = [{ url: post.imageUrl }];
+  }
+
+  return meta;
 };
 
 type Props = {
