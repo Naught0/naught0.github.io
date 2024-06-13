@@ -19,10 +19,17 @@ export const HomepageHeroContent = () => {
             full stack developer
           </p>
           <div className="flex flex-grow justify-end gap-3">
-            <HoverScaleLink href="https://github.com/naught0" target="_blank">
+            <HoverScaleLink
+              aria-label="github"
+              href="https://github.com/naught0"
+              target="_blank"
+            >
               <FaGithub className="shadow-black drop-shadow" />
             </HoverScaleLink>
-            <HoverScaleLink href="https://linkedin.com/in/jameseuteneuer">
+            <HoverScaleLink
+              aria-label="linkedin"
+              href="https://linkedin.com/in/jameseuteneuer"
+            >
               <FaLinkedin className="shadow-black drop-shadow" />
             </HoverScaleLink>
           </div>
