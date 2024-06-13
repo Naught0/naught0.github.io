@@ -2,6 +2,30 @@ import { existsSync } from "fs";
 
 export const projects: Project[] = [
   {
+    title: "migr8",
+    slug: "migr8",
+    description:
+      "A production web app used by Recharge customers to migrate data from their old system to ours. Solo designed and developed from the ground up",
+    url: "https://getrecharge.com",
+    imageUrl: "/migr8.webp",
+    tags: [
+      "python",
+      "asyncio",
+      "flask",
+      "SQL",
+      "typescript",
+      "react",
+      "redis",
+      "hosting",
+      "GCP",
+      "VPS",
+      "system design",
+      "parallelization",
+      "user roles",
+      "security",
+    ],
+  },
+  {
     title: "Colorado Avalanche Information Center (CAIC)",
     slug: "caic",
     description:
@@ -31,30 +55,6 @@ export const projects: Project[] = [
       "docker",
     ],
     sourceUrl: "https://github.com/naught0/combinator",
-  },
-  {
-    title: "migr8",
-    slug: "migr8",
-    description:
-      "A production web app used by Recharge customers to migrate data from their old system to ours. Solo designed and developed from the ground up",
-    url: "https://migr8.rechargeapps.com",
-    imageUrl: "/migr8.webp",
-    tags: [
-      "python",
-      "asyncio",
-      "flask",
-      "SQL",
-      "typescript",
-      "react",
-      "redis",
-      "hosting",
-      "GCP",
-      "VPS",
-      "system design",
-      "parallelization",
-      "user roles",
-      "security",
-    ],
   },
   {
     title: "jamese.dev",
