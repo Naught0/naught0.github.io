@@ -26,7 +26,7 @@ const fontMono = JetBrains_Mono({
 export const metadata = {
   title: "James' Personal Site",
   description:
-    "James' (@naught0) personal site, showcasing some projects the sporadic blog post.",
+    "James' (@naught0) personal site, showcasing some projects and the sporadic blog post.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
