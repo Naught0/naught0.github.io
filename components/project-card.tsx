@@ -75,7 +75,7 @@ export const ProjectCard = (props: Project) => {
 function CardImage({
   defer = true,
   ...props
-}: HTMLProps<HTMLImageElement> & { defer: boolean }) {
+}: HTMLProps<HTMLImageElement> & { defer?: boolean }) {
   return (
     <img
       {...props}
