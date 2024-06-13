@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    --code: #1e1e2e;
     --ghost-white: 240, 100%, 99%, 1;
     --rich-black: 206, 47%, 6%, 1;
     --supablue: 208, 66%, 70%;
@@ -84,4 +85,8 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+.prose pre {
+  background: var(--code);
 }

@@ -1,10 +1,17 @@
+import "@catppuccin/highlightjs/css/catppuccin-mocha.css";
 import { Tags } from "@/components/tags";
 import { blogs } from "@/data/blogs";
-import { existsSync, readFileSync } from "fs";
-import { micromark } from "micromark";
-import { gfm, gfmHtml } from "micromark-extension-gfm";
+import { existsSync } from "fs";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import rehypeHighlight from "rehype-highlight";
+import rehypeStringify from "rehype-stringify";
+import remarkGfm from "remark-gfm";
+import remarkRehype from "remark-rehype";
+import { read } from "to-vfile";
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import rehypeMinify from "rehype-preset-minify";
 
 export const generateStaticParams = () => {
   return blogs.map(({ slug }) => ({
@@ -31,26 +38,27 @@ type Props = {
   params: { slug: string };
 };
 
-export default function Project({ params: { slug } }: Props) {
+export default async function Project({ params: { slug } }: Props) {
   const post = blogs.find((p) => p.slug === slug);
   if (!post) notFound();
 
   const path = `./data/posts/${post.slug}.md`;
   if (!existsSync(path)) notFound();
 
-  const markdown = readFileSync(path).toString();
-
+  const __html = String(
+    await unified()
+      .use(remarkParse)
+      .use(remarkGfm)
+      .use(remarkRehype)
+      .use(rehypeHighlight)
+      .use(rehypeStringify)
+      .process(await read(path)),
+  );
   return (
     <article>
       <div
         dangerouslySetInnerHTML={{
-          __html: markdown
-            ? micromark(markdown, {
-                extensions: [gfm()],
-                htmlExtensions: [gfmHtml()],
-                allowDangerousHtml: true,
-              })
-            : "",
+          __html,
         }}
       />
       <hr />

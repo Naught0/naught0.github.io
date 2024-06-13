@@ -3,7 +3,7 @@ export const ProfilePic = () => {
     <div className={"grid"}>
       <div
         style={{
-          backgroundImage: "url('/pfp.png')",
+          backgroundImage: "url('/pfp.webp')",
           backgroundSize: "cover",
           gridArea: "1/1",
         }}

@@ -72,6 +72,15 @@ export const ProjectCard = (props: Project) => {
   );
 };
 
-function CardImage(props: HTMLProps<HTMLImageElement>) {
-  return <img {...props} className={cn(props.className, "rounded")} />;
+function CardImage({
+  defer = true,
+  ...props
+}: HTMLProps<HTMLImageElement> & { defer: boolean }) {
+  return (
+    <img
+      {...props}
+      className={cn(props.className, "rounded")}
+      loading={defer ? "lazy" : undefined}
+    />
+  );
 }

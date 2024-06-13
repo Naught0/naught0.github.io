@@ -5,7 +5,7 @@ export const blogs: Array<BlogPost> = [
     createdAt: "2024-06-09",
     description:
       "A behind-the-scenes look at my Magic: The Gathering website created to quickly visualize infinite combos in any deck.",
-    imageUrl: "/combinator.jpeg",
+    imageUrl: "/combinator.webp",
     tags: [
       "python",
       "react",

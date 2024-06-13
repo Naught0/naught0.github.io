@@ -2,7 +2,7 @@
 
 > Get an overview of what combos, infinite loops, and shenanigans are inside your Magic: The Gathering deck.
 
-![](/combinator.jpeg)
+![](/combinator.webp)
 
 ---
 
@@ -70,7 +70,7 @@ I originally hosted the site entirely on Google Cloud Run. This meant that the p
 
 You can search for your [Moxfield](https://moxfield.com) username, filter your decks, and click on any to get a list of combos it contains. You can also search with a link to a deck from Moxfield, [Archidekt](https://archidekt.com) or [MTG Goldfish](https://www.mtggoldfish.com/).
 
-![](/combinator-user-search.png)
+![](/combinator-user-search.webp)
 
 Once you've selected a deck, the required cards for the combo are on the left, the effects of the combo on the right. You can click the combo to see a detailed list of steps and prerequisites.
 
@@ -80,11 +80,11 @@ Once you've selected a deck, the required cards for the combo are on the left, t
 
 Click the "Add 1" tab to see combos that could be added to your list with the addition of a single card.
 
-![](/combinator-add-one.png)
+![](/combinator-add-one.webp)
 
 Finally, need to quickly find which cards say "infect" in your deck? You can search the titles and text of cards in your deck too.
 
-![](/combinator-search.png)
+![](/combinator-search.webp)
 
 ## Conclusion
 
