@@ -72,7 +72,7 @@ export const ProjectCard = (props: Project) => {
           <CardImage
             alt={props.title}
             src={props.imageUrl}
-            className="w-full max-w-screen-sm"
+            className="w-full max-w-screen-sm rounded"
           />
         </div>
       )}
@@ -87,7 +87,7 @@ function CardImage({
   return (
     <img
       {...props}
-      className={cn(props.className, "rounded")}
+      className={cn(props.className)}
       loading={defer ? "lazy" : undefined}
     />
   );
