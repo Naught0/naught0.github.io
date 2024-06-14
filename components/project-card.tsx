@@ -1,17 +1,12 @@
 import { BiLinkExternal } from "react-icons/bi";
 import { Link } from "./link";
 import { buttonVariants } from "./ui/button";
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
+import { Card, CardFooter, CardHeader, CardTitle } from "./ui/card";
 import { HTMLProps } from "react";
 import { cn } from "@/lib/utils";
+import { markdownToHtml } from "@/lib/markdown";
 
-export const ProjectCard = (props: Project) => {
+export const ProjectCard = async (props: Project) => {
   const href = `/blog/${props.slug}`;
   return (
     <Card className="flex h-fit basis-full flex-row flex-wrap items-center justify-center gap-3 bg-black py-3">
@@ -38,7 +33,13 @@ export const ProjectCard = (props: Project) => {
           </div>
         )}
         <CardFooter className="flex-col gap-6 py-3">
-          <CardDescription>{props.description}</CardDescription>
+          <article
+            className="prose prose-invert text-primary-foreground"
+            dangerouslySetInnerHTML={{
+              __html: await markdownToHtml(props.description),
+            }}
+          ></article>
+
           <div className="flex flex-row flex-wrap gap-3">
             {props.sourceUrl && (
               <Link
