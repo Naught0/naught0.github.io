@@ -16,7 +16,7 @@ I also **suck** at MTG, so I definitely wanted to include the steps for executin
 
 The first thing I needed was a way to determine which MTG cards result in infinite combos when played together.
 
-Luckily, as with most things, someone has already solved that problem for me. [Commander Spellbook](https://commanderspellbook.com/) contains tens of thousands of MTG combos submitted by the community. They previously shipped their entire database of combos as part of their frontend bundle in a JSON blob. I loaded this blob into pandas to do the card-crunching.
+Luckily, as with most things, someone has already solved that problem for me. [Commander Spellbook](https://commanderspellbook.com/) contains tens of thousands of MTG combos submitted by the community. They previously shipped their entire database of combos as part of their frontend bundle in a big blob of JSON. I loaded this blob into [pandas](https://pandas.pydata.org/) to do the card-crunching.
 
 The logic for finding combos looked something like this:
 
@@ -37,7 +37,7 @@ Et voila, I now have all combinations of cards which occur in the database that 
 
 ### The Great Changening
 
-Sometime around the beginning of 2024 Commander Spellbook revamped their site. They no longer provided their entire database so freely (a boon to page load times I'm sure!), so I had to start using their newly created API instead.
+Sometime around the beginning of 2024 Commander Spellbook revamped their site. They no longer provide their entire database so freely (a boon to page load times I'm sure!), so I had to start using their newly created API instead.
 
 The latest version of Combinator sends a list of cards to the Commander Spellbook API and parses the results to get roughly the same output as before.
 
@@ -57,13 +57,13 @@ And it isn't any faster than when we did the calculations ourselves! Oh well.
 
 The site has evolved over time, but generally I'm using python for the backend and React for the frontend.
 
-**Backend**: Flask (later FastAPI), Pandas
+**Backend**: Flask (now FastAPI), Pandas
 
 **Frontend**: React (originally [CRA](https://create-react-app.dev/) but moved to [Vite](https://vitejs.dev/)), Bulma CSS (later, a combo of Bulma + Tailwind)
 
 ## Hosting
 
-I originally hosted the site entirely on Google Cloud Run. This meant that the python app was serving the React frontend only after a container cold start, which wasn't ideal. I eventually moved the frontend to Cloudflare Pages which gets cached and instantly served for free. The python API is still hosted on Google Cloud Run.
+I originally hosted the site entirely on Google Cloud Run. This meant that the python app was serving the React frontend only after a container cold start, which meant multiple seconds of loading before the site was displayed. To resolve this, I moved the frontend to Cloudflare Pages which gets instantly served for free. The python API is still hosted on Google Cloud Run.
 
 
 ## A Brief Tour
