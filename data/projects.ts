@@ -41,6 +41,7 @@ export const projects: Project[] = [
       "pandas",
       "typescript",
       "react",
+      "analytics",
       "hosting",
       "docker",
     ],
