@@ -4,13 +4,8 @@ import { blogs } from "@/data/blogs";
 import { existsSync } from "fs";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import rehypeHighlight from "rehype-highlight";
-import rehypeStringify from "rehype-stringify";
-import remarkGfm from "remark-gfm";
-import remarkRehype from "remark-rehype";
 import { read } from "to-vfile";
-import { unified } from "unified";
-import remarkParse from "remark-parse";
+import { markdownToHtml } from "@/lib/markdown";
 
 export const generateStaticParams = () => {
   return blogs.map(({ slug }) => ({
@@ -58,15 +53,7 @@ export default async function Project({ params: { slug } }: Props) {
   const path = `./data/posts/${post.slug}.md`;
   if (!existsSync(path)) notFound();
 
-  const __html = String(
-    await unified()
-      .use(remarkParse)
-      .use(remarkGfm)
-      .use(remarkRehype)
-      .use(rehypeHighlight)
-      .use(rehypeStringify)
-      .process(await read(path)),
-  );
+  const __html = await markdownToHtml(await read(path));
   return (
     <article>
       <div
