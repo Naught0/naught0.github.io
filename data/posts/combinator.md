@@ -6,6 +6,8 @@
 
 ---
 
+### Contents
+
 [Combinator](https://mtgcombinator.com) is a tool to see what combos a Magic: The Gathering (MTG) deck contains. A combo is typically 2 or more cards which, when played together, will interact to form an often infinite loop, winning the game or putting you absurdly ahead.
 
 When I began making Combinator, there was no easy way to find combos in a given deck list from any of the most popular deck-building websites. [EDHREC](https://edhrec.com/) is great, but it wasn't exactly what I wanted. I needed a website that let me quickly discern what combinations of cards I should or could assemble while I was playing.

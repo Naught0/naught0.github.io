@@ -5,11 +5,15 @@ import remarkRehype from "remark-rehype";
 import { type Compatible } from "to-vfile";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
+import remarkToc from "remark-toc";
+import headerId from "remark-heading-id";
 
 export async function markdownToHtml(markdown: Compatible) {
   return String(
     await unified()
       .use(remarkParse)
+      .use(remarkToc)
+      .use(headerId, { defaults: true })
       .use(remarkGfm)
       .use(remarkRehype)
       .use(rehypeHighlight)
