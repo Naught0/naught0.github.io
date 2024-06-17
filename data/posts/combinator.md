@@ -37,7 +37,7 @@ Et voila, I now have all combinations of cards which occur in the database that 
 
 ### The Great Changening
 
-Sometime around the beginning of 2024 Commander Spellbook revamped their site. They no longer provide their entire database so freely (a boon to page load times I'm sure!), so I had to start using their newly created API instead.
+Sometime around the beginning of 2024 Commander Spellbook revamped their site. They no longer provide their entire database so freely (a boon to page load times I'm sure), so I had to start using their newly created API instead.
 
 The latest version of Combinator sends a list of cards to the Commander Spellbook API and parses the results to get roughly the same output as before.
 
