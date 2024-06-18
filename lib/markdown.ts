@@ -7,6 +7,7 @@ import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkToc from "remark-toc";
 import headerId from "remark-heading-id";
+import rehypeExternalLinks from "rehype-external-links";
 
 export async function markdownToHtml(markdown: Compatible) {
   return String(
@@ -17,6 +18,10 @@ export async function markdownToHtml(markdown: Compatible) {
       .use(remarkGfm)
       .use(remarkRehype)
       .use(rehypeHighlight)
+      .use(rehypeExternalLinks, {
+        rel: ["noopener", "noreferrer"],
+        target: "_blank",
+      })
       .use(rehypeStringify)
       .process(markdown),
   );
