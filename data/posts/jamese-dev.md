@@ -68,6 +68,42 @@ async function processImage(filePath) {
 ```
 I run this as the first step of my build process. You can find the [full script here](https://github.com/Naught0/naught0.github.io/blob/master/scripts/process-images.js)
 
+## Transforming Markdown
+
+Next has good support for [MDX](https://nextjs.org/docs/app/building-your-application/configuring/mdx) pages, but it's not exactly what I'm looking for.
+
+Instead, I define the metadata (title, description, tags, etc.) for each blog post in `data/blogs.ts`. 
+
+```ts
+export const blogs: Array<BlogPost> = [
+  {
+    title: "Creating a Static Site Using Next.js 14 & Github Pages",
+    slug: "jamese-dev",
+    createdAt: "2024-06-16",
+    description: "",
+    imageUrl: "/jamese-dev.webp",
+    tags: [
+      "next.js",
+      "github pages",
+      "SSG",
+      "image optimization",
+      "sharp",
+      "markdown",
+      "blog",
+    ],
+  },
+  // ...
+];
+```
+
+I can use this data wherever I want in the app. I can use it to render a list of my blog posts, like at [https://jamese.dev/blog](/blog).
+
+I write each blog post using plain ole Markdown (egads!) in `data/posts/[slug].md`.
+
+I use [remark](https://github.com/remarkjs/remark) and [rehype](https://github.com/rehypejs/rehype) (and a ton of [plugins](https://github.com/Naught0/naught0.github.io/blob/master/lib/markdown.ts)) to transform my posts from Markdown into HTML. 
+
+
+
 ## Building & Deploying
 
 To deploy to Github Pages, I use the [`gh-pages`](https://github.com/tschaub/gh-pages) utility. I could set up a Github action to do the same thing upon merge to main, but I like this way since I'm just committing straight to main anyhow.
