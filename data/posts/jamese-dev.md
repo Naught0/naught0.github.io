@@ -1,10 +1,11 @@
+
 # Creating a Static Site Using Next.js 14 & Github Pages
 
 ![](/jamese-dev.webp)
 
 ---
 
-### Contents
+## Contents
 
 ## Configuring Next
 
@@ -27,9 +28,9 @@ The `basePath` needs only apply when hosted on Github pages, so I get rid of it 
 
 ## Optimizing Images
 
-When `output` is `"export"`, Next will not optimize images automatically. I have a number of images in the repo that vary in size, quality, and format. I need to resize and compress these into `.webp`s because that's what our lord and savior Lighthouse™️  demands of us.
+When `output` is `"export"`, Next will not optimize images automatically. I have a number of images in the repo that vary in size, quality, and format. I need to resize and compress these into `.webp`s because that's what our lord and savior Lighthouse™️  demands.
 
-I initially thought to use ImageMagick for optimization, but I discovered [sharp](https://sharp.pixelplumbing.com/) which promised to be faster with a pleasant API.
+I initially thought to use ImageMagick for this task, but I discovered [sharp](https://sharp.pixelplumbing.com/) which promised to be faster with a pleasant API.
 
 ### Using sharp
 
@@ -53,8 +54,9 @@ async function processImage(filePath) {
   );
 
   try {
+    // Basically set a maxWidth of 1280 & convert to webp
     await sharp(filePath)
-      .resize({ width: 1280, withoutEnlargement: true })
+      .resize({ width: 1280, withoutEnlargement: true }) 
       .webp({ force: true })
       .toFile(outputFilePath);
     console.log(`Processed ${fileName}`);
@@ -64,11 +66,13 @@ async function processImage(filePath) {
 }
 // For each jpeg, png file => processImage(path), etc.
 ```
-I run this as part of my build process, and you can find the [full script here](https://github.com/Naught0/naught0.github.io/blob/master/scripts/process-images.js).
-
+I run this as the first step of my build process. You can find the [full script here](https://github.com/Naught0/naught0.github.io/blob/master/scripts/process-images.js)
 
 ## Building & Deploying
 
+To deploy to Github Pages, I use the [`gh-pages`](https://github.com/tschaub/gh-pages) utility. I could set up a Github action to do the same thing upon merge to main, but I like this way since I'm just committing straight to main anyhow.
+
+My `package.json` scripts look like this:
 
 ```json
 {
@@ -83,3 +87,15 @@ I run this as part of my build process, and you can find the [full script here](
   }
 }
 ```
+
+The process is straightforward. I just run `pnpm run deploy` and:
+
+1. Images are converted to `.webp` and placed in `public/`
+2. The Next site is built and statically exported to `out/`
+3. `gh-pages` does its thing to push the build artifacts in `out/` to Github
+   - It also creates the [`.nojekyll`](https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/) and `CNAME` files
+
+## Conclusion
+
+That's it! There are a few caveats and pitfalls to mind, but building a completely static site with Next.js and hosting it via Github pages is pretty easy &ndash; and free :)
+
