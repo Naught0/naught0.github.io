@@ -5,7 +5,15 @@ export const blogs: Array<BlogPost> = [
     createdAt: "2024-06-16",
     description: "",
     imageUrl: "/jamese-dev.webp",
-    tags: ["next.js", "github pages", "ssg", "image optimization"],
+    tags: [
+      "next.js",
+      "github pages",
+      "SSG",
+      "image optimization",
+      "sharp",
+      "markdown",
+      "blog",
+    ],
   },
   {
     title: "Making the Combinator-inator",
