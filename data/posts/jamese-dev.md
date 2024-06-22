@@ -68,7 +68,7 @@ async function processImage(filePath) {
 ```
 I run this as the first step of my build process. You can find the [full script here](https://github.com/Naught0/naught0.github.io/blob/master/scripts/process-images.js)
 
-## Transforming Markdown
+## Transforming markdown
 
 Next has good support for [MDX](https://nextjs.org/docs/app/building-your-application/configuring/mdx) pages, but it's not exactly what I'm looking for.
 
@@ -96,12 +96,31 @@ export const blogs: Array<BlogPost> = [
 ];
 ```
 
-I can use this data wherever I want in the app. I can use it to render a list of my blog posts, like at [https://jamese.dev/blog](/blog).
+Writing this in plain typescript makes it easy to consume throughout the rest of the app. I can render a list of my blog posts, like at [https://jamese.dev/blog](/blog). Most importantly, I'm able to iterate over these values to generate my static pages with Next using [`generateStaticParams`](https://nextjs.org/docs/app/api-reference/functions/generate-static-params).
 
-I write each blog post using plain ole Markdown (egads!) in `data/posts/[slug].md`.
+I write each blog post using plain ole markdown (egads!) in `data/posts/[slug].md`. I use [remark](https://github.com/remarkjs/remark) and [rehype](https://github.com/rehypejs/rehype) from "unified.js" with a bunch of plugins to transform my posts from markdown into HTML. The plugins are responsible for everything from creating the table of contents to adding syntax highlighting to code snippets. My pipeline looks like this:
 
-I use [remark](https://github.com/remarkjs/remark) and [rehype](https://github.com/rehypejs/rehype) (and a ton of [plugins](https://github.com/Naught0/naught0.github.io/blob/master/lib/markdown.ts)) to transform my posts from Markdown into HTML. 
+```ts
+export async function markdownToHtml(markdown: Compatible) {
+  return String(
+    await unified()
+      .use(remarkParse)
+      .use(remarkToc)
+      .use(remarkGfm)
+      .use(remarkRehype)
+      .use(rehypeSlug)
+      .use(rehypeHighlight)
+      .use(rehypeExternalLinks, {
+        rel: ["noopener", "noreferrer"],
+        target: "_blank",
+      })
+      .use(rehypeStringify)
+      .process(markdown),
+  );
+}
+```
 
+I just need to pass the output of this function to `dangerouslySetInnerHTML` on an element. I don't need to do any sanitization because I don't plan on pwning myself &ndash; at least not anytime soon. You can see how this very post is rendered [here](https://github.com/Naught0/naught0.github.io/blob/master/app/blog/%5Bslug%5D/page.tsx).
 
 
 ## Building & Deploying
@@ -129,9 +148,9 @@ The process is straightforward. I just run `pnpm run deploy` and:
 1. Images are converted to `.webp` and placed in `public/`
 2. The Next site is built and statically exported to `out/`
 3. `gh-pages` does its thing to push the build artifacts in `out/` to Github
-   - It also creates the [`.nojekyll`](https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/) and `CNAME` files
+   - It also creates the [`.nojekyll`](https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/) and `CNAME` files for me
 
 ## Conclusion
 
-That's it! There are a few caveats and pitfalls to mind, but building a completely static site with Next.js and hosting it via Github pages is pretty easy &ndash; and free :)
+That's it! There are some minor quirks, but building a completely static site with Next.js and hosting it via Github pages is pretty easy &ndash; and free :)
 
