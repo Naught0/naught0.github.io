@@ -66,7 +66,7 @@ async function processImage(filePath) {
 }
 // For each jpeg, png file => processImage(path), etc.
 ```
-I run this as the first step of my build process. You can find the [full script here](https://github.com/Naught0/naught0.github.io/blob/master/scripts/process-images.js)
+I run this as the first step of my build process. You can find the [full script here](https://github.com/Naught0/naught0.github.io/blob/master/scripts/process-images.js).
 
 ## Transforming markdown
 
