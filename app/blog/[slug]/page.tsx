@@ -46,7 +46,7 @@ type Props = {
   params: { slug: string };
 };
 
-export default async function Project({ params: { slug } }: Props) {
+export default async function Blog({ params: { slug } }: Props) {
   const post = blogs.find((p) => p.slug === slug);
   if (!post) notFound();
 
