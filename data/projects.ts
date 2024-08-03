@@ -50,7 +50,7 @@ export const projects: Project[] = [
   {
     title: "slacker_news",
     slug: "slackernews",
-    url: "https://slackernews.vercel.app",
+    url: "https://slackernews.jamese.dev",
     description:
       "A mobile-responsive frontend for [Hacker News](https://news.ycombinator.com) with collapsible comments and crucially, dark mode",
     sourceUrl: "https://github.com/naught0/slackernews",
