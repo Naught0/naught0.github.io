@@ -120,7 +120,7 @@ export async function markdownToHtml(markdown: Compatible) {
 }
 ```
 
-I just need to pass the output of this function to `dangerouslySetInnerHTML` on an element. I don't need to do any sanitization because I don't plan on pwning myself &ndash; at least not anytime soon. You can see how this very post is rendered [here](https://github.com/Naught0/naught0.github.io/blob/master/app/blog/%5Bslug%5D/page.tsx).
+I only need to pass the output of this function to `dangerouslySetInnerHTML` on an element. I don't have to do any sanitization because I don't plan on pwning myself &ndash; at least not anytime soon. You can see how this and all blog posts are rendered [here](https://github.com/Naught0/naught0.github.io/blob/master/app/blog/%5Bslug%5D/page.tsx).
 
 
 ## Building & Deploying
