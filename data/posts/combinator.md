@@ -70,6 +70,8 @@ I originally hosted the site entirely on Google Cloud Run. This meant that the p
 
 ## A Brief Tour
 
+I just recently revamped the frontend (Dec. 2024), so these screenshots are old, but the basic functionality is the same. Stay tuned for a post exploring _that_ process.
+
 You can search for your [Moxfield](https://moxfield.com) username, filter your decks, and click on any to get a list of combos it contains. You can also search with a link to a deck from Moxfield, [Archidekt](https://archidekt.com) or [MTG Goldfish](https://www.mtggoldfish.com/).
 
 ![](/combinator-user-search.webp)
