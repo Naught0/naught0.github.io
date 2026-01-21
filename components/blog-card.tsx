@@ -1,3 +1,4 @@
+import { BlogPost } from "@/types";
 import { Link } from "./link";
 import { Tags } from "./tags";
 import { buttonVariants } from "./ui/button";

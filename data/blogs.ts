@@ -1,3 +1,5 @@
+import { BlogPost } from "@/types";
+
 export const blogs: Array<BlogPost> = [
   {
     title: "Creating a Static Site Using Next.js 14 & Github Pages",
