@@ -10,9 +10,8 @@ export const projects: Project[] = [
         Interactive avalanche forecasts & reports with graphics, maps, data
         tables, and complex forms. Winner of a{" "}
         <a href="https://we-awards.com/winner/colorado-avalanche-information-center/">
-          Season 10 Web Excellence
-        </a>{" "}
-        award
+          Web Excellence Award
+        </a>
       </span>
     ),
     imageUrl: "/caic.webp",
