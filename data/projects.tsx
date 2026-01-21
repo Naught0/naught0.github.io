@@ -47,24 +47,6 @@ export const projects: Project[] = [
     sourceUrl: "https://github.com/naught0/combinator",
   },
   {
-    title: "migr8",
-    slug: "migr8",
-    description:
-      "A production web app used by Recharge customers to migrate data from their old system to ours. Designed and developed from the ground up by yours truly",
-    url: "https://getrecharge.com",
-    imageUrl: "/migr8.webp",
-    tags: [
-      "python",
-      "SQL",
-      "typescript",
-      "react",
-      "redis",
-      "hosting",
-      "system design",
-      "security",
-    ],
-  },
-  {
     title: "asyncurban",
     url: "https://asyncurban.readthedocs.io",
     sourceUrl: "https://github.com/naught0/asyncurban",
