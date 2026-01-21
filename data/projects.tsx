@@ -3,24 +3,6 @@ import { existsSync } from "fs";
 
 export const projects: Project[] = [
   {
-    title: "migr8",
-    slug: "migr8",
-    description:
-      "A production web app used by Recharge customers to migrate data from their old system to ours. Designed and developed from the ground up by yours truly",
-    url: "https://getrecharge.com",
-    imageUrl: "/migr8.webp",
-    tags: [
-      "python",
-      "SQL",
-      "typescript",
-      "react",
-      "redis",
-      "hosting",
-      "system design",
-      "security",
-    ],
-  },
-  {
     title: "Colorado Avalanche Information Center (CAIC)",
     slug: "caic",
     description: (
@@ -36,6 +18,15 @@ export const projects: Project[] = [
     imageUrl: "/caic.webp",
     url: "https://avalanche.state.co.us",
     tags: ["react", "typescript", "google maps", "CI/CD"],
+  },
+  {
+    title: "Inventedle",
+    slug: "inventedle",
+    url: "https://inventedle.com",
+    description:
+      "The inventurous daily trivia game. Guess the year of the invention to win. Track your stats, compete with friends, and more!",
+    imageUrl: "/inventedle.webp",
+    tags: ["next.js", "typescript", "tailwind", "hosting", "CI/CD", "auth"],
   },
   {
     title: "combinator",
@@ -55,6 +46,38 @@ export const projects: Project[] = [
       "docker",
     ],
     sourceUrl: "https://github.com/naught0/combinator",
+  },
+  {
+    title: "migr8",
+    slug: "migr8",
+    description:
+      "A production web app used by Recharge customers to migrate data from their old system to ours. Designed and developed from the ground up by yours truly",
+    url: "https://getrecharge.com",
+    imageUrl: "/migr8.webp",
+    tags: [
+      "python",
+      "SQL",
+      "typescript",
+      "react",
+      "redis",
+      "hosting",
+      "system design",
+      "security",
+    ],
+  },
+  {
+    title: "asyncurban",
+    url: "https://asyncurban.readthedocs.io",
+    sourceUrl: "https://github.com/naught0/asyncurban",
+    slug: "asyncurban",
+    description: (
+      <span>
+        An asynchronous python wrapper around the UrbanDictionary API.{" "}
+        <strong>Over 1 million downloads!</strong>
+      </span>
+    ),
+    imageUrl: "/asyncurban.webp",
+    tags: ["python", "async", "API", "documentation", "package distribution"],
   },
   {
     title: "slacker_news",
@@ -80,20 +103,6 @@ export const projects: Project[] = [
     imageUrl: "/jamese-dev.webp",
     tags: ["typescript", "next.js", "tailwind", "hosting", "SSG"],
     sourceUrl: "https://github.com/naught0/naught0.github.io",
-  },
-  {
-    title: "asyncurban",
-    url: "https://asyncurban.readthedocs.io",
-    sourceUrl: "https://github.com/naught0/asyncurban",
-    slug: "asyncurban",
-    description: (
-      <span>
-        An asynchronous python wrapper around the UrbanDictionary API.{" "}
-        <strong>Over 1 million downloads!</strong>
-      </span>
-    ),
-    imageUrl: "/asyncurban.webp",
-    tags: ["python", "async", "API", "documentation", "package distribution"],
   },
   {
     title: "qtbot",
