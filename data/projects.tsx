@@ -21,10 +21,11 @@ export const projects: Project[] = [
   {
     title: "Inventedle",
     slug: "inventedle",
-    url: "https://inventedle.com",
     description:
       "The inventurous daily trivia game. Guess the year of the invention to win. Track your stats, compete with friends, and more!",
+    url: "https://inventedle.com",
     imageUrl: "/inventedle.webp",
+    sourceUrl: "https://github.com/naught0/inventedle",
     tags: ["next.js", "typescript", "tailwind", "hosting", "CI/CD", "auth"],
   },
   {
