@@ -1,3 +1,4 @@
+import { Project } from "@/types";
 import { existsSync } from "fs";
 
 export const projects: Project[] = [
@@ -22,8 +23,16 @@ export const projects: Project[] = [
   {
     title: "Colorado Avalanche Information Center (CAIC)",
     slug: "caic",
-    description:
-      "Interactive avalanche forecasts & reports with graphics, maps, data tables, and complex forms",
+    description: (
+      <span>
+        Interactive avalanche forecasts & reports with graphics, maps, data
+        tables, and complex forms. Winner of a{" "}
+        <a href="https://we-awards.com/winner/colorado-avalanche-information-center/">
+          Season 10 Web Excellence
+        </a>{" "}
+        award
+      </span>
+    ),
     imageUrl: "/caic.webp",
     url: "https://avalanche.state.co.us",
     tags: ["react", "typescript", "google maps", "CI/CD"],
@@ -50,9 +59,16 @@ export const projects: Project[] = [
   {
     title: "slacker_news",
     slug: "slackernews",
-    url: "https://slackernews.jamese.dev",
-    description:
-      "A mobile-responsive frontend for [Hacker News](https://news.ycombinator.com) with collapsible comments and crucially, dark mode",
+    url: "https://news.jamese.dev",
+    description: (
+      <span>
+        A mobile-responsive frontend for{" "}
+        <a href="https://news.ycombinator.com" target="_blank">
+          Hacker News
+        </a>{" "}
+        with collapsible comments and crucially, dark mode
+      </span>
+    ),
     sourceUrl: "https://github.com/naught0/slackernews",
     imageUrl: "/slackernews.webp",
     tags: ["next.js", "typescript", "vercel", "SSR"],
@@ -70,8 +86,12 @@ export const projects: Project[] = [
     url: "https://asyncurban.readthedocs.io",
     sourceUrl: "https://github.com/naught0/asyncurban",
     slug: "asyncurban",
-    description:
-      "An asynchronous python wrapper around the UrbanDictionary API. Downloaded nearly 1,000,000 times!",
+    description: (
+      <span>
+        An asynchronous python wrapper around the UrbanDictionary API.{" "}
+        <strong>Over 1 million downloads!</strong>
+      </span>
+    ),
     imageUrl: "/asyncurban.webp",
     tags: ["python", "async", "API", "documentation", "package distribution"],
   },

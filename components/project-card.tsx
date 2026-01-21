@@ -5,6 +5,7 @@ import { Card, CardFooter, CardHeader, CardTitle } from "./ui/card";
 import { HTMLProps } from "react";
 import { cn } from "@/lib/utils";
 import { markdownToHtml } from "@/lib/markdown";
+import { Project } from "@/types";
 
 export const ProjectCard = async (props: Project) => {
   const href = `/blog/${props.slug}`;
@@ -33,13 +34,9 @@ export const ProjectCard = async (props: Project) => {
           </div>
         )}
         <CardFooter className="flex-col gap-6 py-3">
-          <article
-            className="prose prose-invert text-primary-foreground"
-            dangerouslySetInnerHTML={{
-              __html: await markdownToHtml(props.description),
-            }}
-          ></article>
-
+          <article className="prose prose-invert text-primary-foreground">
+            {props.description}
+          </article>
           <div className="flex flex-row flex-wrap gap-3">
             {props.sourceUrl && (
               <Link

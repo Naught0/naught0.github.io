@@ -1,10 +1,12 @@
+import type { ReactNode } from "react";
+
 interface Project {
   slug: string;
   title: string;
   url?: string;
   sourceUrl?: string;
   hasBlog: boolean;
-  description: string;
+  description: ReactNode;
   imageUrl: string;
   tags: string[];
 }
